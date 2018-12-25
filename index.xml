@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>当然我在扯淡 on 当然我在扯淡</title><link>mukhali.github.com/</link><description>Recent content in 当然我在扯淡 on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 24 Dec 2018 11:38:26 +0800</lastBuildDate><atom:link href="mukhali.github.com/" rel="self" type="application/rss+xml"/><item><title>About</title><link>mukhali.github.com/about/</link><pubDate>Mon, 24 Dec 2018 11:38:26 +0800</pubDate><guid>mukhali.github.com/about/</guid><description>&lt;p&gt;你好&lt;/p&gt;</description></item><item><title>Emacs喜欢神器</title><link>mukhali.github.com/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</link><pubDate>Tue, 08 Mar 2016 20:19:37 +0800</pubDate><guid>mukhali.github.com/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</guid><description>
+&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Emacs是一个操作系统级别Editor，最初由Richard Stallman(理查德·马修·斯托曼)于1975年在MIT协同Guy Steele共同完成。很可能有人喜欢UNIX哲学，而讨厌Emacs这种包含万物的行为。而我会说“我喜欢UNIX哲学，也拥抱Emacs”。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0x01-appointment&#34;&gt;0x01 Appointment&lt;/h2&gt;
+&lt;p&gt;在diary文件中编辑你的安排如下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Monday
+8:00am 该工作咯
+3:00pm 看会儿paper
+Tuesday
+8:00am 该工作咯
+3:00pm 看会儿paper
+Wednesday
+8:00am 该工作咯
+3:00pm 看会儿paper
+Thursday
+8:00am 该工作咯
+3:00pm 看会儿paper
+Friday
+8:00am 该工作咯
+3:00pm 看会儿paper
+* 1 清理一遍阅读列表，学习一个新主题
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在你自己的配置文件中添加以下代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(global-set-key (kbd &amp;quot;&amp;lt;f9&amp;gt;&amp;quot;)
+&#39;(lambda () (interactive)
+(progn
+(if (not (featurep &#39;appt))
+(appt-activate)
+(unless appt-timer
+(appt-activate)))
+))) ;quick access to Calendar and Diary
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;每次打开Emacs的时候，按f9就能激活提醒了。&lt;/p&gt;
+&lt;h2 id=&#34;0x02-calendar&#34;&gt;0x02 Calendar&lt;/h2&gt;
+&lt;p&gt;在生活中总有些节日不能错过，
+在过往的时间中总有些日子不能忘怀，
+在这世间总有些人不能不挂念，&lt;/p&gt;
+&lt;p&gt;那么cal-china-x就能登上舞台，解决你的这些问题了，它可以记录农历的节日，也可以记录阳历。每天打开Emacs就能看到近日的重要事件。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; (if (&amp;lt; (string-to-number (format-time-string &amp;quot;%H&amp;quot;)) 9)
+(calendar)
+(switch-to-buffer &amp;quot;*scratch*&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x03-writeroom-mode&#34;&gt;0x03 writeroom mode&lt;/h2&gt;
+&lt;p&gt;当你在写作或者编码时，是不是不喜欢被打扰？那么这个包就是你想要的。还记当年流行全屏写作软件，到处找软件的日子吗？有过iA Writer使用经历吗？&lt;/p&gt;
+&lt;p&gt;在Emacs中，你安装writeroom包后，就能完全沉浸在自己快乐写作或编码中，不会有任何打扰。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://upload-images.jianshu.io/upload_images/673794-b25d5f45d64087d1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;Emacs写作&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;0x04-focus-mode&#34;&gt;0x04 focus mode&lt;/h2&gt;
+&lt;p&gt;当你写作或者编码时，是不是想减少关注点？那么focus包就是你要的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://upload-images.jianshu.io/upload_images/673794-7f7d53db072adbe6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;Emacs专注&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;0x05-auctex&#34;&gt;0x05 Auctex&lt;/h2&gt;
+&lt;p&gt;在使用Emacs之前，我一直使用TeXstudio作为TeXLive的前段，写作时使用Sublime。当你遇见Auctex时，你会喜欢上她的。&lt;/p&gt;
+&lt;h2 id=&#34;0x06-time-format&#34;&gt;0x06 Time Format&lt;/h2&gt;
+&lt;p&gt;当你全屏Emacs后，无法看到时间，你可以通过这个在mode line上看到时间奥。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; (setq display-time-24hr-format t
+;; display-time-format &amp;quot;%d | %H:%M&amp;quot;
+;; display-time-day-and-date t
+;; display-time-interval 60
+display-time-default-load-average nil)
+(display-time-mode)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x07-org-pomodoro&#34;&gt;0x07 Org Pomodoro&lt;/h2&gt;
+&lt;p&gt;org-pomodoro自带的显示样式，太长。占地方，我需要短些的。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; (custom-set-variables
+&#39;(org-pomodoro-format &amp;quot;•%s&amp;quot;)
+&#39;(org-pomodoro-short-break-format &amp;quot;•%s&amp;quot;) )
+(add-hook &#39;org-pomodoro-finished-hook
+(lambda ()
+(mukhali/terminal-notifier-notify &amp;quot;Pomodoro&amp;quot; &amp;quot;time-for-relax&amp;quot;)))
+(add-hook &#39;org-pomodoro-short-break-finished-hook
+(lambda ()
+(mukhali/terminal-notifier-notify &amp;quot;Break-Completed&amp;quot; &amp;quot;ready-for-another?&amp;quot;)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://upload-images.jianshu.io/upload_images/673794-5c1cbfd6ee0cb8d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;定制后的显示样式&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;0x08-org-todo&#34;&gt;0x08 Org Todo&lt;/h2&gt;
+&lt;p&gt;任何事物默认设置永远不会是你想要的，就像QQ默认设置一样：不断打扰你，不断让你去社交。&lt;/p&gt;
+&lt;p&gt;Org 的设置还是需要定制的，根据自己的需求，使用频率去定制自己的方式。下面是我的一些基本定制内容。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; (define-key global-map (kbd &amp;quot;&amp;lt;f7&amp;gt;&amp;quot;) &#39;org-agenda-list)
+(define-key global-map (kbd &amp;quot;&amp;lt;f9&amp;gt;&amp;quot;)
+(lambda () (interactive) (org-capture nil &amp;quot;w&amp;quot;)))
+(with-eval-after-load &#39;org-agenda
+(define-key org-agenda-mode-map (kbd &amp;quot;P&amp;quot;) &#39;org-pomodoro))
+;; (setq org-directory &amp;quot;~/org/&amp;quot;)
+(setq org-deadline-warning-days 4)
+(setq org-agenda-files (list
+&amp;quot;~/org/works.org&amp;quot;))
+(setq org-src-fontify-natively t)
+;; (setq org-default-notes-file (concat org-directory &amp;quot;notes.org&amp;quot;))
+;; (setq org-agenda-include-diary t)
+(setq org-refile-targets
+&#39;((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
+(setq org-todo-keywords
+&#39;((sequence &amp;quot;TODO(t)&amp;quot; &amp;quot;|&amp;quot; &amp;quot;DONE(d)&amp;quot; &amp;quot;CANCELED(c)&amp;quot;)))
+(setq org-capture-templates
+&#39;((&amp;quot;w&amp;quot; &amp;quot;I always arrive late at the office,
+but I make up for it by leaving early.&amp;quot;
+entry (file+headline &amp;quot;works.org&amp;quot; &amp;quot;Works&amp;quot;)
+&amp;quot;* TODO %?\n %i\n SCHEDULED: %t\n %a&amp;quot; :empty-lines 1)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x09-windows-notifier&#34;&gt;0x09 Windows notifier&lt;/h2&gt;
+&lt;p&gt;不喜欢Emacs自带的notifier，感谢开源运动，让我有解决方案可选。下面是我的定制。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; (setq terminal-notifier-command
+&amp;quot;~/plugins/growlnotify.exe&amp;quot;)
+(defun mukhali/terminal-notifier-notify (title message)
+(shell-command-to-string
+(concat terminal-notifier-command
+&amp;quot; /t:&amp;quot; title
+&amp;quot; /i:&amp;quot; &amp;quot;~/plugins/emacs.png&amp;quot;)
+&amp;quot; &amp;quot; message)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x10-杂项&#34;&gt;0x10 杂项&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;;; Emacs 启动时所在的位置
+(setq default-frame-alist &#39;((left . 0) (top . 0) (width . 80) (height . 38)))
+;; 自己的一些Windows使用习惯
+(define-key global-map (kbd &amp;quot;M-&amp;lt;f4&amp;gt;&amp;quot;)
+(lambda () (interactive)
+(recentf-cleanup)
+(projectile-cleanup-known-projects)
+(spacemacs/save-buffers-kill-emacs)
+) )
+(define-key global-map (kbd &amp;quot;M-C-q&amp;quot;) &#39;winner-undo)
+(global-unset-key (kbd &amp;quot;C-x C-s&amp;quot;))
+(global-set-key (kbd &amp;quot;C-s&amp;quot;) &#39;save-buffer)
+;; 一些常用函数
+(defun mukhali/quick-folding-source ()
+(interactive)
+(set-selective-display
+(if selective-display nil 1)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x11-update&#34;&gt;0x11 UPDATE&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;2016-03-08
+2016-04-20
+&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>
