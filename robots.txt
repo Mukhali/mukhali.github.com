@@ -63,4 +63,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: mukhali.github.com/sitemap.xml
+Sitemap: mukhali.github.io/sitemap.xml
