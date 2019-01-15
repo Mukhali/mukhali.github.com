@@ -1,4 +1,219 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>当然我在扯淡 on 当然我在扯淡</title><link>https://mukhali.github.io/</link><description>Recent content in 当然我在扯淡 on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 31 Dec 2018 17:08:39 +0800</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>2018年的杂记</title><link>https://mukhali.github.io/2018/2018%E5%B9%B4de%E6%9D%82%E8%AE%B0/</link><pubDate>Mon, 31 Dec 2018 17:08:39 +0800</pubDate><guid>https://mukhali.github.io/2018/2018%E5%B9%B4de%E6%9D%82%E8%AE%B0/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>当然我在扯淡 on 当然我在扯淡</title><link>https://mukhali.github.io/</link><description>Recent content in 当然我在扯淡 on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 13 Jan 2019 11:08:30 +0800</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>Golang操作Sqlite</title><link>https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/</link><pubDate>Sun, 13 Jan 2019 11:08:30 +0800</pubDate><guid>https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/</guid><description>
+&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;再简单的事情，也需要有人去做。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0x01-代码&#34;&gt;0x01 代码&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;package main
+import (
+&amp;quot;database/sql&amp;quot;
+&amp;quot;fmt&amp;quot;
+_ &amp;quot;github.com/mattn/go-sqlite3&amp;quot;
+&amp;quot;os&amp;quot;
+)
+func main() {
+type Person struct {
+name string
+age int
+}
+person := Person{&amp;quot;mike&amp;quot;,18}
+fmt.Println(person)
+os.Remove(&amp;quot;./foo.db&amp;quot;)
+db, err := sql.Open(&amp;quot;sqlite3&amp;quot;, &amp;quot;./foo.db&amp;quot;)
+checkErr(err)
+defer db.Close()
+//插入数据
+_, err = db.Exec(&amp;quot;create table userinfo (uid text not null primary key, username text, departname text, created text)&amp;quot;)
+checkErr(err)
+stmt, err := db.Prepare(&amp;quot;INSERT INTO userinfo(uid, username, departname, created) values(?,?,?,?)&amp;quot;)
+checkErr(err)
+defer stmt.Close()
+res, err := stmt.Exec(&amp;quot;1&amp;quot;, &amp;quot;astaxie&amp;quot;, &amp;quot;研发部门&amp;quot;, &amp;quot;2012-12-09&amp;quot;)
+checkErr(err)
+id, err := res.LastInsertId()
+checkErr(err)
+fmt.Println(id)
+//更新数据
+stmt, err = db.Prepare(&amp;quot;update userinfo set username=? where uid=?&amp;quot;)
+checkErr(err)
+defer stmt.Close()
+res, err = stmt.Exec(&amp;quot;astaxieupdate&amp;quot;, id)
+checkErr(err)
+affect, err := res.RowsAffected()
+checkErr(err)
+fmt.Println(affect)
+//查询数据
+rows, err := db.Query(&amp;quot;SELECT * FROM userinfo&amp;quot;)
+checkErr(err)
+defer rows.Close()
+for rows.Next() {
+var uid int
+var username string
+var department string
+var created string
+err = rows.Scan(&amp;amp;uid, &amp;amp;username, &amp;amp;department, &amp;amp;created)
+checkErr(err)
+fmt.Println(uid)
+fmt.Println(username)
+fmt.Println(department)
+fmt.Println(created)
+}
+//删除数据
+stmt, err = db.Prepare(&amp;quot;delete from userinfo where uid=?&amp;quot;)
+checkErr(err)
+defer stmt.Close()
+res, err = stmt.Exec(id)
+checkErr(err)
+affect, err = res.RowsAffected()
+checkErr(err)
+fmt.Println(affect)
+db.Close()
+}
+func checkErr(err error) {
+if err != nil {
+panic(err)
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x02-错误处理&#34;&gt;0x02 错误处理&lt;/h2&gt;
+&lt;p&gt;Golang 的这种检查错误的代码太多了，过度重复，一点都不优雅。Golang 2 对这种情况进行了改善。draft 给出的例子如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;func main() {
+hex, err := ioutil.ReadAll(os.Stdin)
+if err != nil {
+log.Fatal(err)
+}
+data, err := parseHexdump(string(hex))
+if err != nil {
+log.Fatal(err)
+}
+os.Stdout.Write(data)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Golang 2的写法如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;func main() {
+handle err {
+log.Fatal(err)
+}
+hex := check ioutil.ReadAll(os.Stdin)
+data := check parseHexdump(string(hex))
+os.Stdout.Write(data)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x3-update&#34;&gt;0x3 UPDATE&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;2019-01-15
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Sqlite3数据库合并</title><link>https://mukhali.github.io/2019/sqlite3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%88%E5%B9%B6/</link><pubDate>Wed, 09 Jan 2019 16:02:17 +0800</pubDate><guid>https://mukhali.github.io/2019/sqlite3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%88%E5%B9%B6/</guid><description>
+&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;再简单的事情，也需要有人去做。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0x01-需求&#34;&gt;0x01 需求&lt;/h2&gt;
+&lt;p&gt;存在多个数据库，需要合并，数据库中相同表的结构是一样的。
+主要是使用了Sqlite3的系统表sqlite_master。&lt;/p&gt;
+&lt;h2 id=&#34;0x02-python-代码&#34;&gt;0x02 Python 代码&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Python&#34;&gt;
+# coding=utf-8
+import sys, sqlite3, os
+def merge_tables(tables_file_a, tables_file_b, con_file_a):
+print(&amp;quot;Start Merge Tables&amp;quot;)
+j = 0
+while j &amp;lt; len(tables_file_b):
+if not tables_file_b[j] in tables_file_a:
+cur_table_file_a = con_file_a.cursor()
+try:
+cur_table_file_a.execute(tables_file_b[j][3:-3])
+except:
+print(&amp;quot;Error: &amp;quot; + tables_file_b[j][3:-3])
+j += 1
+else:
+j += 1
+print(&amp;quot;All Tables Merged!&amp;quot;)
+def merge_index(tables_file_a, tables_file_b, con_file_a):
+print(&amp;quot;Start Merge Index&amp;quot;)
+j = 0
+while j &amp;lt; len(tables_file_b):
+if not tables_file_b[j] in tables_file_a:
+cur_table_file_a = con_file_a.cursor()
+try:
+cur_table_file_a.execute(tables_file_b[j][3:-3])
+except:
+print(&amp;quot;Error: &amp;quot; + tables_file_b[j][3:-3])
+j += 1
+else:
+j += 1
+print(&amp;quot;All Index Merged!&amp;quot;)
+def merge_data(con_current_data, con_des_data, tables_current_data):
+m = 0
+cur_current_data = con_current_data.cursor()
+while m &amp;lt; len(tables_current_data):
+sql_statement = &amp;quot;select * from &amp;quot; + tables_current_data[m][3:-3]
+cur_current_data.execute(sql_statement)
+temp_data_list = cur_current_data.fetchall()
+n = 0
+cur_des_data = con_des_data.cursor()
+while n &amp;lt; len(temp_data_list):
+sql_exist_statement = &amp;quot;select * from &amp;quot; \
++ str(tables_current_data[m])[3:-3] + \
+&#39; where COL_UID=&amp;quot;&#39; + temp_data_list[n][0] + &#39;&amp;quot;&#39;
+cur_des_data.execute(sql_exist_statement)
+temp_des_data_list = cur_des_data.fetchall()
+cur_des_next_data = con_des_data.cursor()
+if len(temp_des_data_list) == 0:
+sql_temp = &amp;quot;&amp;quot;
+nn = 0
+try:
+while nn &amp;lt; len(temp_data_list[n]):
+sql_statement += &#39;&amp;quot;&#39; + temp_data_list[n][nn] + &#39;&amp;quot;,&#39;
+nn += 1
+except:
+print(&amp;quot;Error &amp;quot; + sql_temp)
+try:
+cur_des_next_data.execute(&amp;quot;insert into &amp;quot;
++ str(tables_current_data[m])[3:-3]
++ &amp;quot; values(&amp;quot; + sql_temp[0:-1] + &amp;quot;)&amp;quot;)
+cur_des_next_data.commit()
+except:
+print(&amp;quot;Error &amp;quot; + sql_temp)
+n += 1
+else:
+n += 1
+m += 1
+print(&amp;quot;All Tables Data Merged!&amp;quot;)
+con_file_a = sqlite3.connect(&amp;quot;~/a.db&amp;quot;)
+con_file_b = sqlite3.connect(&amp;quot;~/b.db&amp;quot;)
+# 处理表
+sql_table_statement = &amp;quot;select sql From sqlite_master Where type=&#39;table&#39;&amp;quot;
+cur_file_a = con_file_a.cursor()
+cur_file_a.execute(sql_table_statement)
+tables_file_a = cur_file_a.fetchall()
+cur_file_b = con_file_b.cursor()
+cur_file_b.execute(sql_table_statement)
+tables_file_b = cur_file_b.fetchall()
+merge_tables(tables_file_a, tables_file_b, con_file_a)
+# 处理索引
+sql_index_statement = &amp;quot;select sql From sqlite_master Where type=&#39;index&#39;&amp;quot;
+cur_file_a = con_file_a.cursor()
+cur_file_a.execute(sql_index_statement)
+tables_file_a = cur_file_a.fetchall()
+cur_file_b = con_file_b.cursor()
+cur_file_b.execute(sql_index_statement)
+tables_file_b = cur_file_b.fetchall()
+merge_index(tables_file_a, tables_file_b, con_file_a)
+con_file_a.close()
+con_file_b.close()
+sql_data_statement = &amp;quot;SELECT name FROM sqlite_master WHERE type=&#39;table&#39;&amp;quot;
+cur_file_a = con_file_a.cursor()
+cur_file_a.execute(sql_data_statement)
+cur_file_b = con_file_b.cursor()
+cur_file_b.execute(sql_data_statement)
+tables_file_b = cur_file_b.fetchall()
+merge_data(con_file_b, con_file_a, tables_file_b)
+print(&amp;quot;---------All Data Finished!--------&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x3-后记&#34;&gt;0x3 后记&lt;/h2&gt;
+&lt;p&gt;开始用Python做了这一版，后来用 Qt 重做了，所以这个最初版就放出来了。&lt;/p&gt;
+&lt;h2 id=&#34;0x4-update&#34;&gt;0x4 UPDATE&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;2019-01-13
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>2018年的杂记</title><link>https://mukhali.github.io/2018/2018%E5%B9%B4de%E6%9D%82%E8%AE%B0/</link><pubDate>Mon, 31 Dec 2018 17:08:39 +0800</pubDate><guid>https://mukhali.github.io/2018/2018%E5%B9%B4de%E6%9D%82%E8%AE%B0/</guid><description>
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;每个人都有缺点，我也不例外。&lt;/p&gt;
@@ -21,15 +236,20 @@
 &lt;p&gt;市场上的情况是：海尔洗衣机市场占有率第一、小天鹅专做洗衣机，18年被美的收购、容声是做冰箱出身的。&lt;/p&gt;
 &lt;p&gt;洗衣机可以分两类：波轮式和滚筒式。我喜欢滚筒样式。&lt;/p&gt;
 &lt;p&gt;我以前不懂，以后就懂了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/washing_machine.jpeg&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;</description></item><item><title>About</title><link>https://mukhali.github.io/about/</link><pubDate>Mon, 24 Dec 2018 11:38:26 +0800</pubDate><guid>https://mukhali.github.io/about/</guid><description>&lt;p&gt;你好,不知是什么&lt;/p&gt;
-&lt;p&gt;Surely I Am Joking&lt;/p&gt;</description></item><item><title>Emacs喜欢神器</title><link>https://mukhali.github.io/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</link><pubDate>Tue, 08 Mar 2016 20:19:37 +0800</pubDate><guid>https://mukhali.github.io/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</guid><description>
+&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/washing_machine.jpeg&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;0x2-update&#34;&gt;0x2 UPDATE&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; 2018-12-31
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>About</title><link>https://mukhali.github.io/about/</link><pubDate>Mon, 24 Dec 2018 11:38:26 +0800</pubDate><guid>https://mukhali.github.io/about/</guid><description>&lt;p&gt;您好！
+我不知道这是什么？&lt;/p&gt;
+&lt;p&gt;人越长大越不敢说自己会什么，简历中的技能在不断变短……&lt;/p&gt;
+&lt;p&gt;Surely！！！！！ I Am Joking&lt;/p&gt;</description></item><item><title>Emacs喜欢神器</title><link>https://mukhali.github.io/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</link><pubDate>Tue, 08 Mar 2016 20:19:37 +0800</pubDate><guid>https://mukhali.github.io/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</guid><description>
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Emacs是一个操作系统级别Editor，最初由Richard Stallman(理查德·马修·斯托曼)于1975年在MIT协同Guy Steele共同完成。很可能有人喜欢UNIX哲学，而讨厌Emacs这种包含万物的行为。而我会说“我喜欢UNIX哲学，也拥抱Emacs”。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;0x01-appointment&#34;&gt;0x01 Appointment&lt;/h2&gt;
 &lt;p&gt;在diary文件中编辑你的安排如下&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; Monday
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; Monday
 8:00am 该工作咯
 3:00pm 看会儿paper
 Tuesday
@@ -47,7 +267,7 @@ Friday
 * 1 清理一遍阅读列表，学习一个新主题
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在你自己的配置文件中添加以下代码：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;(global-set-key (kbd &amp;quot;&amp;lt;f9&amp;gt;&amp;quot;)
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (global-set-key (kbd &amp;quot;&amp;lt;f9&amp;gt;&amp;quot;)
 &#39;(lambda () (interactive)
 (progn
 (if (not (featurep &#39;appt))
@@ -62,7 +282,7 @@ Friday
 在过往的时间中总有些日子不能忘怀，
 在这世间总有些人不能不挂念，&lt;/p&gt;
 &lt;p&gt;那么cal-china-x就能登上舞台，解决你的这些问题了，它可以记录农历的节日，也可以记录阳历。每天打开Emacs就能看到近日的重要事件。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; (if (&amp;lt; (string-to-number (format-time-string &amp;quot;%H&amp;quot;)) 9)
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (if (&amp;lt; (string-to-number (format-time-string &amp;quot;%H&amp;quot;)) 9)
 (calendar)
 (switch-to-buffer &amp;quot;*scratch*&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;
@@ -77,7 +297,7 @@ Friday
 &lt;p&gt;在使用Emacs之前，我一直使用TeXstudio作为TeXLive的前端，写作时使用Sublime。当你遇见Auctex时，你会喜欢上她的。&lt;/p&gt;
 &lt;h2 id=&#34;0x06-time-format&#34;&gt;0x06 Time Format&lt;/h2&gt;
 &lt;p&gt;当你全屏Emacs后，无法看到时间，你可以通过这个在mode line上看到时间奥。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; (setq display-time-24hr-format t
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (setq display-time-24hr-format t
 ;; display-time-format &amp;quot;%d | %H:%M&amp;quot;
 ;; display-time-day-and-date t
 ;; display-time-interval 60
@@ -86,7 +306,7 @@ display-time-default-load-average nil)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x07-org-pomodoro&#34;&gt;0x07 Org Pomodoro&lt;/h2&gt;
 &lt;p&gt;org-pomodoro自带的显示样式，太长。占地方，我需要短些的。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; (custom-set-variables
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (custom-set-variables
 &#39;(org-pomodoro-format &amp;quot;•%s&amp;quot;)
 &#39;(org-pomodoro-short-break-format &amp;quot;•%s&amp;quot;) )
 (add-hook &#39;org-pomodoro-finished-hook
@@ -100,7 +320,7 @@ display-time-default-load-average nil)
 &lt;h2 id=&#34;0x08-org-todo&#34;&gt;0x08 Org Todo&lt;/h2&gt;
 &lt;p&gt;任何事物默认设置永远不会是你想要的，就像QQ默认设置一样：不断打扰你，不断让你去社交。&lt;/p&gt;
 &lt;p&gt;Org 的设置还是需要定制的，根据自己的需求，使用频率去定制自己的方式。下面是我的一些基本定制内容。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; (define-key global-map (kbd &amp;quot;&amp;lt;f7&amp;gt;&amp;quot;) &#39;org-agenda-list)
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (define-key global-map (kbd &amp;quot;&amp;lt;f7&amp;gt;&amp;quot;) &#39;org-agenda-list)
 (define-key global-map (kbd &amp;quot;&amp;lt;f9&amp;gt;&amp;quot;)
 (lambda () (interactive) (org-capture nil &amp;quot;w&amp;quot;)))
 (with-eval-after-load &#39;org-agenda
@@ -124,7 +344,7 @@ entry (file+headline &amp;quot;works.org&amp;quot; &amp;quot;Works&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x09-windows-notifier&#34;&gt;0x09 Windows notifier&lt;/h2&gt;
 &lt;p&gt;不喜欢Emacs自带的notifier，感谢开源运动，让我有解决方案可选。下面是我的定制。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; (setq terminal-notifier-command
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (setq terminal-notifier-command
 &amp;quot;~/plugins/growlnotify.exe&amp;quot;)
 (defun mukhali/terminal-notifier-notify (title message)
 (shell-command-to-string
@@ -134,7 +354,7 @@ entry (file+headline &amp;quot;works.org&amp;quot; &amp;quot;Works&amp;quot;)
 &amp;quot; &amp;quot; message)))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x10-杂项&#34;&gt;0x10 杂项&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;;; Emacs 启动时所在的位置
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;;; Emacs 启动时所在的位置
 (setq default-frame-alist &#39;((left . 0) (top . 0) (width . 80) (height . 38)))
 ;; 自己的一些Windows使用习惯
 (define-key global-map (kbd &amp;quot;M-&amp;lt;f4&amp;gt;&amp;quot;)
@@ -153,7 +373,7 @@ entry (file+headline &amp;quot;works.org&amp;quot; &amp;quot;Works&amp;quot;)
 (if selective-display nil 1)))
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x11-update&#34;&gt;0x11 UPDATE&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;2016-03-08
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;2016-03-08
 2016-04-20
 &lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Git喜欢版本管理</title><link>https://mukhali.github.io/2016/git%E5%96%9C%E6%AC%A2%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</link><pubDate>Tue, 19 Jan 2016 09:51:04 +0800</pubDate><guid>https://mukhali.github.io/2016/git%E5%96%9C%E6%AC%A2%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</guid><description>
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
@@ -162,7 +382,7 @@ entry (file+headline &amp;quot;works.org&amp;quot; &amp;quot;Works&amp;quot;)
 当你用上了Git，其它那些版本管理系统真的不想再动了。Git是我最喜欢的工具之一，另一个就是Emacs。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;0x01-关键字&#34;&gt;0x01 关键字&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;HEAD：指针
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; HEAD：指针
 工作区
 版本库(working tree)
 暂存区(index)：add命令将文件添加到暂存区
@@ -174,16 +394,16 @@ entry (file+headline &amp;quot;works.org&amp;quot; &amp;quot;Works&amp;quot;)
 &lt;p&gt;本地分支管理、远程分支管理、补丁管理、暂存（index）管理、&lt;/p&gt;
 &lt;h2 id=&#34;0x03-安装&#34;&gt;0x03 安装&lt;/h2&gt;
 &lt;p&gt;如果你是在Debian，Ubuntu系统中，那么你可以通过下面命令安装：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get install git
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; sudo apt-get install git
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;如果你是在Red Hat，Fedora系统中，那么你可以通过下面命令安装：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo yum install git
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; sudo yum install git
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;我是通过下面这条命令来安装的：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;pacman -S git
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; pacman -S git
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x04-配置&#34;&gt;0x04 配置&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git config --global user.name &amp;quot;name&amp;quot;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git config --global user.name &amp;quot;name&amp;quot;
 git config --global user.email &amp;quot;name@gmail.com&amp;quot;
 git config --global color.ui true
 git config core.ignorecase false
@@ -191,12 +411,12 @@ git config -l #list all the Git config
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;这样配置完后，保存在~/.gitconfig&lt;/p&gt;
 &lt;h2 id=&#34;0x05-查看帮助&#34;&gt;0x05 查看帮助&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git help
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git help
 git help -show #查看show命令的子命令
 git add -h #查看git add命令的帮助文件
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x06-常用命令-查看-添加-提交-删除-找回-重置&#34;&gt;0x06 常用命令（查看、添加、提交、删除、找回、重置）&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git show 356f6def9d3fb7f3b9032ff5aa4b9110d4cca87e
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git show 356f6def9d3fb7f3b9032ff5aa4b9110d4cca87e
 #（哈希值，可以是具体某个文件的，也可以是某一次全部提交）
 checkout #重写工作区
 git co（git co HEAD） #汇总显示工作区、暂存区与HEAD的差异
@@ -234,7 +454,7 @@ git revert HEAD^ #撤销前前一次commit
 git revert &amp;lt;id&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x07-查看文件的不同&#34;&gt;0x07 查看文件的不同&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git diff filename #比较当前文件（工作区文件）和暂存区（索引区）文件的差异。
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git diff filename #比较当前文件（工作区文件）和暂存区（索引区）文件的差异。
 git diff &amp;lt;id&amp;gt; &amp;lt;id&amp;gt; #比较两次提交之间的差异
 git diff &amp;lt;branch1&amp;gt;..&amp;lt;branch2&amp;gt; # 在两个分支之间比较
 git diff --staged # 比较暂存区和版本库差异
@@ -242,7 +462,7 @@ git diff --cached # 比较暂存区和版本库差异
 git diff --stat # 仅仅比较统计信息
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x08-查看提交记录&#34;&gt;0x08 查看提交记录&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git lg
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git lg
 git lg &amp;lt;file&amp;gt; # 查看该文件每次提交记录
 git lg -p &amp;lt;file&amp;gt; # 查看每次详细修改内容的diff
 git lg -p -2 # 查看最近两次详细修改内容的diff
@@ -252,7 +472,7 @@ git lg --pretty=format:&amp;quot;%h - %an, %ar : %s&amp;quot; --graph
 git lg --pretty=oneline filename
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x09-本地分支管理&#34;&gt;0x09 本地分支管理&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git branch -r
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git branch -r
 git br -r # 查看远程分支
 git br &amp;lt;new_branch&amp;gt; # 创建新的分支
 git br -v # 查看各个分支最后提交信息
@@ -267,24 +487,24 @@ git br -d &amp;lt;branch&amp;gt; # 删除某个分支
 git br -D &amp;lt;branch&amp;gt; # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x10-分支合并和rebase&#34;&gt;0x10 分支合并和rebase&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git merge &amp;lt;branch&amp;gt; # 将branch分支合并到当前分支
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git merge &amp;lt;branch&amp;gt; # 将branch分支合并到当前分支
 git merge origin/master --no-ff # 不要Fast-Foward合并，这样可以生成merge提交
 git rebase master &amp;lt;branch&amp;gt; # 将master rebase到branch，相当于：
 git co &amp;lt;branch&amp;gt; &amp;amp;&amp;amp; git rebase master &amp;amp;&amp;amp; git co master &amp;amp;&amp;amp; git merge &amp;lt;branch&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x11-补丁管理&#34;&gt;0x11 补丁管理&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git diff &amp;gt; ../sync.patch # 生成补丁
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git diff &amp;gt; ../sync.patch # 生成补丁
 git apply ../sync.patch # 打补丁
 git apply --check ../sync.patch # 测试补丁能否成功
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x12-暂存管理&#34;&gt;0x12 暂存管理&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git stash # 暂存
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git stash # 暂存
 git stash list # 列所有stash
 git stash apply # 恢复暂存的内容
 git stash drop # 删除暂存区
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x13-远程分支管理&#34;&gt;0x13 远程分支管理&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git pull # 抓取远程仓库所有分支更新并合并到本地
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git pull # 抓取远程仓库所有分支更新并合并到本地
 git pull --no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并
 git fetch origin # 抓取远程仓库更新
 git merge origin/master # 将远程主分支合并到本地当前分支
@@ -300,7 +520,7 @@ git push origin :&amp;lt;remote_branch&amp;gt;
 #先删除本地分支(git br -d &amp;lt;branch&amp;gt;)，然后再push删除远程分支
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x14-远程仓库管理&#34;&gt;0x14 远程仓库管理&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git remote -v # 查看远程服务器地址和仓库名称
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git remote -v # 查看远程服务器地址和仓库名称
 git remote show origin # 查看远程服务器仓库状态
 git remote add origin git@github:robbin/robbin_site.git
 # 添加远程仓库地址
@@ -309,7 +529,7 @@ git remote set-url origin git@github.com:robbin/robbin_site.git
 git remote rm &amp;lt;repository&amp;gt; # 删除远程仓库
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x15-创建远程仓库&#34;&gt;0x15 创建远程仓库&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;git clone --bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git clone --bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库
 scp -r my_project.git git@git.csdn.net:~ # 将纯仓库上传到服务器上
 mkdir robbin_site.git &amp;amp;&amp;amp; cd robbin_site.git &amp;amp;&amp;amp; git --bare init # 在服务器创建纯仓库
 git remote add origin git@github.com:robbin/robbin_site.git # 设置远程仓库地址
@@ -321,5 +541,5 @@ git br --set-upstream master origin/master
 git br --set-upstream develop origin/develop
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;0x16-update&#34;&gt;0x16 UPDATE&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;2016-01-19（还有一部分设置没有更新）
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; 2016-01-19（还有一部分设置没有更新）
 &lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

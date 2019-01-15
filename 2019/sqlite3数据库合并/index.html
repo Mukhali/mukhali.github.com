@@ -1,0 +1,143 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content=noodp><meta name=author content=mukhali><link rel=prev href=https://mukhali.github.io/2018/2018%E5%B9%B4de%E6%9D%82%E8%AE%B0/><link rel=next href=https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/><link rel=canonical href=https://mukhali.github.io/2019/sqlite3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%88%E5%B9%B6/><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/images/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/images/favicon-16x16.png><link rel=manifest href=/images/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content=#da532c><meta name=theme-color content=#ffffff><title>Sqlite3数据库合并 | 当然我在扯淡</title><meta name=title content="Sqlite3数据库合并 | 当然我在扯淡"><link rel=stylesheet href=/font/iconfont.css><link rel=stylesheet href=/css/main.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mukhali.github.io"},"articleSection":"posts","name":"Sqlite3数据库合并","headline":"Sqlite3数据库合并","description":"Python 写一些小工具很不错","inLanguage":"en-us","author":"mukhali","creator":"mukhali","publisher":"mukhali","accountablePerson":"mukhali","copyrightHolder":"mukhali","copyrightYear":"2019","datePublished":"2019-01-09 16:02:17 &#43;0800 CST","dateModified":"2019-01-09 16:02:17 &#43;0800 CST","url":"https://mukhali.github.io/2019/sqlite3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%88%E5%B9%B6/","wordCount":"313","keywords":["Database","Python","当然我在扯淡"]}</script></head><body><div class=wrapper><nav class=navbar><div class=container><div class="navbar-header header-logo"><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://mukhali.github.io>当然我在扯淡</a></div><div class="menu navbar-right"><a class=menu-item href=/posts/>博客</a>
+<a class=menu-item href=/categories/>类别</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/about/>关于</a></div></div></nav><nav class=navbar-mobile id=nav-mobile style=display:none><div class=container><div class=navbar-header><div><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://mukhali.github.io>当然我在扯淡</a></div><div class=menu-toggle><span></span><span></span><span></span></div></div><div class=menu id=mobile-menu><a class=menu-item href=/posts/>博客</a>
+<a class=menu-item href=/categories/>类别</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/about/>关于</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">Sqlite3数据库合并</h1><div class=post-meta>Written by <a itemprop=name href=https://mukhali.github.io rel=author>mukhali</a> with ♥
+<span class=post-time>on <time datetime=2019-01-09 itemprop=datePublished>January 9, 2019</time></span>
+in
+<i class="iconfont icon-folder"></i><span class=post-category><a href=https://mukhali.github.io/categories/%E5%B7%A5%E5%85%B7/>工具</a></span>
+|
+<a href=#gitalk-container itemprop=discussionUrl><span class=gitalk-comment-count itemprop=commentCount></span></a>条评论</div></header><div class=post-toc id=post-toc><h2 class=post-toc-title></h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#0x00-引言>0x00 引言</a></li><li><a href=#0x01-需求>0x01 需求</a></li><li><a href=#0x02-python-代码>0x02 Python 代码</a></li><li><a href=#0x3-后记>0x3 后记</a></li><li><a href=#0x4-update>0x4 UPDATE</a></li></ul></li></ul></nav></div></div><script type=text/javascript>window.onload=function(){var fix=$('.post-toc');var end=$('.post-comment');var fixTop=fix.offset().top,fixHeight=fix.height();var endTop,miss;var offsetTop=fix[0].offsetTop;$(window).scroll(function(){var docTop=Math.max(document.body.scrollTop,document.documentElement.scrollTop);if(end.length>0){endTop=end.offset().top;miss=endTop-docTop-fixHeight;}
+if(fixTop<docTop){fix.css({'position':'fixed'});if((end.length>0)&&(endTop<(docTop+fixHeight))){fix.css({top:miss});}else{fix.css({top:0});}}else{fix.css({'position':'absolute'});fix.css({top:offsetTop});}})}</script><div class=post-content><h2 id=0x00-引言>0x00 引言</h2><blockquote><p>再简单的事情，也需要有人去做。</p></blockquote><h2 id=0x01-需求>0x01 需求</h2><p>存在多个数据库，需要合并，数据库中相同表的结构是一样的。
+主要是使用了Sqlite3的系统表sqlite_master。</p><h2 id=0x02-python-代码>0x02 Python 代码</h2><pre><code class=language-Python>
+# coding=utf-8
+import sys, sqlite3, os
+
+
+def merge_tables(tables_file_a, tables_file_b, con_file_a):
+    print(&quot;Start Merge Tables&quot;)
+    j = 0
+    while j &lt; len(tables_file_b):
+        if not tables_file_b[j] in tables_file_a:
+            cur_table_file_a = con_file_a.cursor()
+            try:
+                cur_table_file_a.execute(tables_file_b[j][3:-3])
+            except:
+                print(&quot;Error: &quot; + tables_file_b[j][3:-3])
+            j += 1
+        else:
+            j += 1
+    print(&quot;All Tables Merged!&quot;)
+
+
+def merge_index(tables_file_a, tables_file_b, con_file_a):
+    print(&quot;Start Merge Index&quot;)
+    j = 0
+    while j &lt; len(tables_file_b):
+        if not tables_file_b[j] in tables_file_a:
+            cur_table_file_a = con_file_a.cursor()
+            try:
+                cur_table_file_a.execute(tables_file_b[j][3:-3])
+            except:
+                print(&quot;Error: &quot; + tables_file_b[j][3:-3])
+            j += 1
+        else:
+            j += 1
+    print(&quot;All Index Merged!&quot;)
+
+
+def merge_data(con_current_data, con_des_data, tables_current_data):
+    m = 0
+    cur_current_data = con_current_data.cursor()
+    while m &lt; len(tables_current_data):
+        sql_statement = &quot;select * from &quot; + tables_current_data[m][3:-3]
+        cur_current_data.execute(sql_statement)
+        temp_data_list = cur_current_data.fetchall()
+
+        n = 0
+        cur_des_data = con_des_data.cursor()
+        while n &lt; len(temp_data_list):
+            sql_exist_statement = &quot;select * from &quot; \
+                                  + str(tables_current_data[m])[3:-3] + \
+                                  ' where COL_UID=&quot;' + temp_data_list[n][0] + '&quot;'
+            cur_des_data.execute(sql_exist_statement)
+            temp_des_data_list = cur_des_data.fetchall()
+
+            cur_des_next_data = con_des_data.cursor()
+            if len(temp_des_data_list) == 0:
+                sql_temp = &quot;&quot;
+                nn = 0
+                try:
+                    while nn &lt; len(temp_data_list[n]):
+                        sql_statement += '&quot;' + temp_data_list[n][nn] + '&quot;,'
+                        nn += 1
+                except:
+                    print(&quot;Error &quot; + sql_temp)
+
+                try:
+                    cur_des_next_data.execute(&quot;insert into &quot;
+                                              + str(tables_current_data[m])[3:-3]
+                                              + &quot; values(&quot; + sql_temp[0:-1] + &quot;)&quot;)
+                    cur_des_next_data.commit()
+                except:
+                    print(&quot;Error &quot; + sql_temp)
+                n += 1
+            else:
+                n += 1
+
+        m += 1
+    print(&quot;All Tables Data Merged!&quot;)
+
+
+con_file_a = sqlite3.connect(&quot;~/a.db&quot;)
+con_file_b = sqlite3.connect(&quot;~/b.db&quot;)
+
+# 处理表
+sql_table_statement = &quot;select sql From sqlite_master Where type='table'&quot;
+cur_file_a = con_file_a.cursor()
+cur_file_a.execute(sql_table_statement)
+tables_file_a = cur_file_a.fetchall()
+
+cur_file_b = con_file_b.cursor()
+cur_file_b.execute(sql_table_statement)
+tables_file_b = cur_file_b.fetchall()
+merge_tables(tables_file_a, tables_file_b, con_file_a)
+
+# 处理索引
+sql_index_statement = &quot;select sql From sqlite_master Where type='index'&quot;
+cur_file_a = con_file_a.cursor()
+cur_file_a.execute(sql_index_statement)
+tables_file_a = cur_file_a.fetchall()
+
+cur_file_b = con_file_b.cursor()
+cur_file_b.execute(sql_index_statement)
+tables_file_b = cur_file_b.fetchall()
+merge_index(tables_file_a, tables_file_b, con_file_a)
+
+con_file_a.close()
+con_file_b.close()
+
+sql_data_statement = &quot;SELECT name FROM sqlite_master WHERE type='table'&quot;
+cur_file_a = con_file_a.cursor()
+cur_file_a.execute(sql_data_statement)
+
+cur_file_b = con_file_b.cursor()
+cur_file_b.execute(sql_data_statement)
+tables_file_b = cur_file_b.fetchall()
+merge_data(con_file_b, con_file_a, tables_file_b)
+
+print(&quot;---------All Data Finished!--------&quot;)
+
+</code></pre><h2 id=0x3-后记>0x3 后记</h2><p>开始用Python做了这一版，后来用 Qt 重做了，所以这个最初版就放出来了。</p><h2 id=0x4-update>0x4 UPDATE</h2><pre><code class=language-Bash>2019-01-13
+</code></pre></div><div class=post-copyright><p class=copyright-item><span>Author:</span>
+<span>mukhali</span></p><p class=copyright-item><span>Link:</span>
+<a href=https://mukhali.github.io/2019/sqlite3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%88%E5%B9%B6/><script>document.write(decodeURI(location.origin+location.pathname))</script></a></p></div><div class=post-tags><section><i class="iconfont icon-tag"></i>Tag(s):
+<span class=tag><a href=https://mukhali.github.io/tags/database/>#Database</a></span>
+<span class=tag><a href=https://mukhali.github.io/tags/python/>#Python</a></span></section><section><a href=javascript:window.history.back();>back</a></span> ·
+<span><a href=https://mukhali.github.io>home</a></span></section></div><div class=post-nav><a href=https://mukhali.github.io/2018/2018%E5%B9%B4de%E6%9D%82%E8%AE%B0/ class=prev rel=prev title=2018年的杂记><i class="iconfont icon-left"></i>&nbsp;2018年的杂记</a>
+<a href=https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/ class=next rel=next title=Golang操作Sqlite>Golang操作Sqlite&nbsp;<i class="iconfont icon-right"></i></a></div></article><div class=post-comment><div id=gitalk-container class=gitalk-container></div><link rel=stylesheet href=/lib/gitalk/gitalk-1.2.2.min.css><script src=/lib/gitalk/gitalk-1.2.2.min.js></script><script type=text/javascript>var gitalk=new Gitalk({id:'5ed0c6ada0b39470cbd060dc3ebdc8d0',title:'Sqlite3数据库合并',clientID:'2c80562a372523adfc47',clientSecret:'5557c6e2592e63b963b7087078a703729f04fdde',repo:'mukhali.github.com',owner:'mukhali',admin:['mukhali'],body:decodeURI(location.href)});gitalk.render('gitalk-container');</script><noscript>Please enable JavaScript to view the
+<a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript></div></div></main><footer class=footer><div class=copyright>&copy;
+<span itemprop=copyrightYear>2016 - 2019</span>
+<span class=with-love><i class="iconfont icon-love"></i></span><span class=author itemprop=copyrightHolder><a href=https://mukhali.github.io>mukhali</a></span></div></footer><script src=/js/vendor_no_gallery.min.js async></script></div></body></html>
