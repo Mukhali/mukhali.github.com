@@ -1,0 +1,93 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content=noodp><meta name=author content=mukhali><link rel=prev href=https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/><link rel=next href=https://mukhali.github.io/2019/csharp%E8%B0%83%E7%94%A8c%E8%AF%AD%E8%A8%80dll/><link rel=canonical href=https://mukhali.github.io/2019/golang%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/images/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/images/favicon-16x16.png><link rel=manifest href=/images/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content=#da532c><meta name=theme-color content=#ffffff><title>Golang的面向对象 | 当然我在扯淡</title><meta name=title content="Golang的面向对象 | 当然我在扯淡"><link rel=stylesheet href=/font/iconfont.css><link rel=stylesheet href=/css/main.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mukhali.github.io"},"articleSection":"posts","name":"Golang的面向对象","headline":"Golang的面向对象","description":"换 Golang 来写一写代码","inLanguage":"en-us","author":"mukhali","creator":"mukhali","publisher":"mukhali","accountablePerson":"mukhali","copyrightHolder":"mukhali","copyrightYear":"2019","datePublished":"2019-01-13 17:22:39 &#43;0800 CST","dateModified":"2019-01-13 17:22:39 &#43;0800 CST","url":"https://mukhali.github.io/2019/golang%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/","wordCount":"152","keywords":["Golang","OOP","当然我在扯淡"]}</script></head><body><div class=wrapper><nav class=navbar><div class=container><div class="navbar-header header-logo"><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://mukhali.github.io>当然我在扯淡</a></div><div class="menu navbar-right"><a class=menu-item href=/posts/>博客</a>
+<a class=menu-item href=/categories/>类别</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/about/>关于</a></div></div></nav><nav class=navbar-mobile id=nav-mobile style=display:none><div class=container><div class=navbar-header><div><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://mukhali.github.io>当然我在扯淡</a></div><div class=menu-toggle><span></span><span></span><span></span></div></div><div class=menu id=mobile-menu><a class=menu-item href=/posts/>博客</a>
+<a class=menu-item href=/categories/>类别</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/about/>关于</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">Golang的面向对象</h1><div class=post-meta>Written by <a itemprop=name href=https://mukhali.github.io rel=author>mukhali</a> with ♥
+<span class=post-time>on <time datetime=2019-01-13 itemprop=datePublished>January 13, 2019</time></span>
+in
+<i class="iconfont icon-folder"></i><span class=post-category><a href=https://mukhali.github.io/categories/%E7%8E%A9%E5%85%B7/>玩具</a></span>
+|
+<a href=#gitalk-container itemprop=discussionUrl><span class=gitalk-comment-count itemprop=commentCount></span></a>条评论</div></header><div class=post-toc id=post-toc><h2 class=post-toc-title></h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#0x00-引言>0x00 引言</a></li><li><a href=#0x01-成员变量>0x01 成员变量</a></li><li><a href=#0x02-成员函数>0x02 成员函数</a></li><li><a href=#0x03-继承>0x03 继承</a></li><li><a href=#0x04-多态>0x04 多态</a></li></ul></li></ul></nav></div></div><script type=text/javascript>window.onload=function(){var fix=$('.post-toc');var end=$('.post-comment');var fixTop=fix.offset().top,fixHeight=fix.height();var endTop,miss;var offsetTop=fix[0].offsetTop;$(window).scroll(function(){var docTop=Math.max(document.body.scrollTop,document.documentElement.scrollTop);if(end.length>0){endTop=end.offset().top;miss=endTop-docTop-fixHeight;}
+if(fixTop<docTop){fix.css({'position':'fixed'});if((end.length>0)&&(endTop<(docTop+fixHeight))){fix.css({top:miss});}else{fix.css({top:0});}}else{fix.css({'position':'absolute'});fix.css({top:offsetTop});}})}</script><div class=post-content><h2 id=0x00-引言>0x00 引言</h2><blockquote><p>再简单的事情，也需要有人去做。</p></blockquote><h2 id=0x01-成员变量>0x01 成员变量</h2><pre><code class=language-C>type Person struct {
+  name string
+  age int
+}
+
+person := Person{&quot;mike&quot;,18}
+fmt.Println(person)
+</code></pre><h2 id=0x02-成员函数>0x02 成员函数</h2><pre><code class=language-C>func (person *Person) showInfo() {
+    fmt.Printf(&quot;My name is %s , age is %d &quot;,person.name,person.age)
+}
+
+func (person *Person) setAge(age int) {
+    person.age = age
+}
+
+person := Person{&quot;mike&quot;,18}
+person.showInfo()
+person.setAge(20)
+fmt,Println(person)
+</code></pre><h2 id=0x03-继承>0x03 继承</h2><p>没有关键字的继承。</p><pre><code class=language-C>type Student struct {
+  Person
+  id int
+  score int
+}
+
+func (student *Student) showInfo() {
+  fmt.Println(&quot;I am a student ...&quot;)
+}
+
+func (student *Student) read() {
+  fmt.Println(&quot;read book ...&quot;)
+}
+
+student := Student{Person{&quot;jake&quot;,16},1001,99}
+student.showInfo()
+student.setAge(22)
+student.read()
+</code></pre><h2 id=0x04-多态>0x04 多态</h2><pre><code class=language-C>package main
+
+import &quot;fmt&quot;
+
+type Human interface {
+    speak(language string)
+}
+
+type Chinese struct {
+
+}
+
+type American struct {
+
+}
+
+func (ch Chinese) speak(language string ) {
+  fmt.Printf(&quot;speck %s\n&quot;,language)
+}
+
+func (am American ) speak(language string ) {
+  fmt.Printf(&quot;speck %s\n&quot;,language)
+}
+
+func main() {
+    var ch Human
+    var am Human
+
+    ch = Chinese{}
+    am = American{}
+
+    ch.speak(&quot;Chinese&quot;)
+    am.speak(&quot;English&quot;)
+}
+</code></pre></div><div class=post-copyright><p class=copyright-item><span>Author:</span>
+<span>mukhali</span></p><p class=copyright-item><span>Link:</span>
+<a href=https://mukhali.github.io/2019/golang%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/><script>document.write(decodeURI(location.origin+location.pathname))</script></a></p></div><div class=post-tags><section><i class="iconfont icon-tag"></i>Tag(s):
+<span class=tag><a href=https://mukhali.github.io/tags/golang/>#Golang</a></span>
+<span class=tag><a href=https://mukhali.github.io/tags/oop/>#OOP</a></span></section><section><a href=javascript:window.history.back();>back</a></span> ·
+<span><a href=https://mukhali.github.io>home</a></span></section></div><div class=post-nav><a href=https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/ class=prev rel=prev title=Golang操作Sqlite><i class="iconfont icon-left"></i>&nbsp;Golang操作Sqlite</a>
+<a href=https://mukhali.github.io/2019/csharp%E8%B0%83%E7%94%A8c%E8%AF%AD%E8%A8%80dll/ class=next rel=next title=C#调用C语言DLL>C#调用C语言DLL&nbsp;<i class="iconfont icon-right"></i></a></div></article><div class=post-comment><div id=gitalk-container class=gitalk-container></div><link rel=stylesheet href=/lib/gitalk/gitalk-1.2.2.min.css><script src=/lib/gitalk/gitalk-1.2.2.min.js></script><script type=text/javascript>var gitalk=new Gitalk({id:'092802da9dc9813921a339cedd195f26',title:'Golang的面向对象',clientID:'2c80562a372523adfc47',clientSecret:'5557c6e2592e63b963b7087078a703729f04fdde',repo:'mukhali.github.com',owner:'mukhali',admin:['mukhali'],body:decodeURI(location.href)});gitalk.render('gitalk-container');</script><noscript>Please enable JavaScript to view the
+<a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript></div></div></main><footer class=footer><div class=copyright>&copy;
+<span itemprop=copyrightYear>2016 - 2019</span>
+<span class=with-love><i class="iconfont icon-love"></i></span><span class=author itemprop=copyrightHolder><a href=https://mukhali.github.io>mukhali</a></span></div></footer><script src=/js/vendor_no_gallery.min.js async></script></div></body></html>

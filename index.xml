@@ -1,4 +1,161 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>当然我在扯淡 on 当然我在扯淡</title><link>https://mukhali.github.io/</link><description>Recent content in 当然我在扯淡 on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 13 Jan 2019 11:08:30 +0800</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>Golang操作Sqlite</title><link>https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/</link><pubDate>Sun, 13 Jan 2019 11:08:30 +0800</pubDate><guid>https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>当然我在扯淡 on 当然我在扯淡</title><link>https://mukhali.github.io/</link><description>Recent content in 当然我在扯淡 on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 18 Feb 2019 22:37:25 +0800</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>C#调用Cpp语言DLL</title><link>https://mukhali.github.io/2019/csharp%E8%B0%83%E7%94%A8cpp%E8%AF%AD%E8%A8%80dll/</link><pubDate>Mon, 18 Feb 2019 22:37:25 +0800</pubDate><guid>https://mukhali.github.io/2019/csharp%E8%B0%83%E7%94%A8cpp%E8%AF%AD%E8%A8%80dll/</guid><description>
+&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;再简单的事情，也需要有人去做。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0x01-cpp工程&#34;&gt;0x01 Cpp工程&lt;/h2&gt;
+&lt;p&gt;CppMath.h&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;#pragma once
+#include &amp;lt;stdexcept&amp;gt;
+class CppMath
+{
+public:
+double Add(double arg1,double arg2);
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;CppMath.cpp&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;#pragma once
+#include &amp;quot;CppMath.h&amp;quot;
+double CppMath::Add(double arg1,double arg2)
+{
+return arg1+arg2;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x02-clr-wrapper工程&#34;&gt;0x02 CLR Wrapper工程&lt;/h2&gt;
+&lt;p&gt;CLRWrapper.h&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;#pragma once
+#include &amp;quot;CppMath.h&amp;quot;
+using namespace System;
+namespace CLRWrapper {
+public ref class CppMathWrapper
+{
+public:
+//ctor
+CppMathWrapper();
+//Methods
+double Add(double arg1,double arg2);
+private:
+CppMath *cppMath;
+};
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;CLRWrapper.cpp&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;#include &amp;quot;stdafx.h&amp;quot;
+#include &amp;quot;CLRWrapper.h&amp;quot;
+#include &amp;quot;CppMath.cpp&amp;quot;
+CLRWrapper::CppMathWrapper::CppMathWrapper()
+{
+cppMath = new CppMath();
+}
+double CLRWrapper::CppMathWrapper::Add(double arg1,double arg2)
+{
+return cppMath-&amp;gt;Add(arg1,arg2);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;添加头文件依赖&lt;/p&gt;
+&lt;p&gt;Properties –&amp;gt; Configuration Properties –&amp;gt; C/C++ –&amp;gt; Additional Include Directories&lt;/p&gt;
+&lt;h2 id=&#34;0x03-c-工程&#34;&gt;0x03 C#工程&lt;/h2&gt;
+&lt;p&gt;添加引用&lt;/p&gt;
+&lt;p&gt;prograss.cs&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;CppMathWrapper wrapper = new CppMathWrapper();
+Console.WriteLine(wrapper.Add(1.4, 2.7));
+Console.ReadLine();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x04-update&#34;&gt;0x04 UPDATE&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;2019-02-18
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>C#调用C语言DLL</title><link>https://mukhali.github.io/2019/csharp%E8%B0%83%E7%94%A8c%E8%AF%AD%E8%A8%80dll/</link><pubDate>Mon, 18 Feb 2019 22:09:25 +0800</pubDate><guid>https://mukhali.github.io/2019/csharp%E8%B0%83%E7%94%A8c%E8%AF%AD%E8%A8%80dll/</guid><description>
+&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;再简单的事情，也需要有人去做。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0x01-h文件&#34;&gt;0x01 .h文件&lt;/h2&gt;
+&lt;p&gt;demo.h&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;extern &amp;quot;C&amp;quot; __declspec(dllexport) double Add(double a, double b);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x02-cpp文件&#34;&gt;0x02 .cpp文件&lt;/h2&gt;
+&lt;p&gt;demo.cpp&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;double Add( double a, double b ) { return a+b; }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x03-c-实现&#34;&gt;0x03 C#实现&lt;/h2&gt;
+&lt;p&gt;prograss.cs&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;using System.Runtime.InteropServices;
+[DllImport(&amp;quot;MathFuncsDll.dll&amp;quot;, CallingConvention=CallingConvention.Cdecl)]
+public static extern double Add(double a, double b);
+public static void main()
+{
+c = Add(c, c);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x04-update&#34;&gt;0x04 UPDATE&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;2019-02-18
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Golang的面向对象</title><link>https://mukhali.github.io/2019/golang%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link><pubDate>Sun, 13 Jan 2019 17:22:39 +0800</pubDate><guid>https://mukhali.github.io/2019/golang%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid><description>
+&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;再简单的事情，也需要有人去做。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0x01-成员变量&#34;&gt;0x01 成员变量&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;type Person struct {
+name string
+age int
+}
+person := Person{&amp;quot;mike&amp;quot;,18}
+fmt.Println(person)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x02-成员函数&#34;&gt;0x02 成员函数&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;func (person *Person) showInfo() {
+fmt.Printf(&amp;quot;My name is %s , age is %d &amp;quot;,person.name,person.age)
+}
+func (person *Person) setAge(age int) {
+person.age = age
+}
+person := Person{&amp;quot;mike&amp;quot;,18}
+person.showInfo()
+person.setAge(20)
+fmt,Println(person)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x03-继承&#34;&gt;0x03 继承&lt;/h2&gt;
+&lt;p&gt;没有关键字的继承。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;type Student struct {
+Person
+id int
+score int
+}
+func (student *Student) showInfo() {
+fmt.Println(&amp;quot;I am a student ...&amp;quot;)
+}
+func (student *Student) read() {
+fmt.Println(&amp;quot;read book ...&amp;quot;)
+}
+student := Student{Person{&amp;quot;jake&amp;quot;,16},1001,99}
+student.showInfo()
+student.setAge(22)
+student.read()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x04-多态&#34;&gt;0x04 多态&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;package main
+import &amp;quot;fmt&amp;quot;
+type Human interface {
+speak(language string)
+}
+type Chinese struct {
+}
+type American struct {
+}
+func (ch Chinese) speak(language string ) {
+fmt.Printf(&amp;quot;speck %s\n&amp;quot;,language)
+}
+func (am American ) speak(language string ) {
+fmt.Printf(&amp;quot;speck %s\n&amp;quot;,language)
+}
+func main() {
+var ch Human
+var am Human
+ch = Chinese{}
+am = American{}
+ch.speak(&amp;quot;Chinese&amp;quot;)
+am.speak(&amp;quot;English&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Golang操作Sqlite</title><link>https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/</link><pubDate>Sun, 13 Jan 2019 11:08:30 +0800</pubDate><guid>https://mukhali.github.io/2019/golang%E6%93%8D%E4%BD%9Csqlite/</guid><description>
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;再简单的事情，也需要有人去做。&lt;/p&gt;
@@ -99,7 +256,7 @@ data := check parseHexdump(string(hex))
 os.Stdout.Write(data)
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;0x3-update&#34;&gt;0x3 UPDATE&lt;/h2&gt;
+&lt;h2 id=&#34;0x03-update&#34;&gt;0x03 UPDATE&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;2019-01-15
 &lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Sqlite3数据库合并</title><link>https://mukhali.github.io/2019/sqlite3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%88%E5%B9%B6/</link><pubDate>Wed, 09 Jan 2019 16:02:17 +0800</pubDate><guid>https://mukhali.github.io/2019/sqlite3%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%88%E5%B9%B6/</guid><description>
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
@@ -209,9 +366,9 @@ tables_file_b = cur_file_b.fetchall()
 merge_data(con_file_b, con_file_a, tables_file_b)
 print(&amp;quot;---------All Data Finished!--------&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;0x3-后记&#34;&gt;0x3 后记&lt;/h2&gt;
+&lt;h2 id=&#34;0x03-后记&#34;&gt;0x03 后记&lt;/h2&gt;
 &lt;p&gt;开始用Python做了这一版，后来用 Qt 重做了，所以这个最初版就放出来了。&lt;/p&gt;
-&lt;h2 id=&#34;0x4-update&#34;&gt;0x4 UPDATE&lt;/h2&gt;
+&lt;h2 id=&#34;0x04-update&#34;&gt;0x04 UPDATE&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt;2019-01-13
 &lt;/code&gt;&lt;/pre&gt;</description></item><item><title>2018年的杂记</title><link>https://mukhali.github.io/2018/2018%E5%B9%B4de%E6%9D%82%E8%AE%B0/</link><pubDate>Mon, 31 Dec 2018 17:08:39 +0800</pubDate><guid>https://mukhali.github.io/2018/2018%E5%B9%B4de%E6%9D%82%E8%AE%B0/</guid><description>
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
@@ -239,9 +396,15 @@ print(&amp;quot;---------All Data Finished!--------&amp;quot;)
 &lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/washing_machine.jpeg&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;0x2-update&#34;&gt;0x2 UPDATE&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; 2018-12-31
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>About</title><link>https://mukhali.github.io/about/</link><pubDate>Mon, 24 Dec 2018 11:38:26 +0800</pubDate><guid>https://mukhali.github.io/about/</guid><description>&lt;p&gt;您好！
-我不知道这是什么？&lt;/p&gt;
-&lt;p&gt;人越长大越不敢说自己会什么，简历中的技能在不断变短……&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>About</title><link>https://mukhali.github.io/about/</link><pubDate>Mon, 24 Dec 2018 11:38:26 +0800</pubDate><guid>https://mukhali.github.io/about/</guid><description>&lt;p&gt;您好！我不知道这是什么？&lt;/p&gt;
+&lt;p&gt;人越长大越不敢说自己会什么，简历中技能部分我会试着去不断的删减……&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;突然想起某人曾说：慢慢来，会比较快。&lt;/p&gt;
+&lt;p&gt;人到中年，开始老了，也更软了。经历的事情越多，越来越不敢嘲笑别人的脆弱。也越来越像个历史唯物主义者，相信常识，相信事物的客观规律。&lt;/p&gt;
+&lt;p&gt;环看周遭的人，哪一个不是千疮百孔。&lt;/p&gt;
+&lt;p&gt;我以前太刚了，相信自己一定是个幸运者，玩三国杀的时候喜欢用夏侯淳的“刚烈”，总之做不到温如玉。&lt;/p&gt;
+&lt;p&gt;过去总想让世界知道我，现在就希望这个世界忘记我，然后慢慢等待80岁的自己，会不会活的比爷爷或外公更舒适？&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;Surely！！！！！ I Am Joking&lt;/p&gt;</description></item><item><title>Emacs喜欢神器</title><link>https://mukhali.github.io/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</link><pubDate>Tue, 08 Mar 2016 20:19:37 +0800</pubDate><guid>https://mukhali.github.io/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</guid><description>
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
 &lt;blockquote&gt;
