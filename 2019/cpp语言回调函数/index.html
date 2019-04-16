@@ -1,0 +1,83 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content=noodp><meta name=author content=mukhali><link rel=prev href=https://mukhali.github.io/2019/c%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/><link rel=canonical href=https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/images/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/images/favicon-16x16.png><link rel=manifest href=/images/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content=#da532c><meta name=theme-color content=#ffffff><title>Cpp语言回调函数 | 当然我在扯淡</title><meta name=title content="Cpp语言回调函数 | 当然我在扯淡"><link rel=stylesheet href=/font/iconfont.css><link rel=stylesheet href=/css/main.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mukhali.github.io"},"articleSection":"posts","name":"Cpp语言回调函数","headline":"Cpp语言回调函数","description":"Cpp语言回调函数","inLanguage":"en-us","author":"mukhali","creator":"mukhali","publisher":"mukhali","accountablePerson":"mukhali","copyrightHolder":"mukhali","copyrightYear":"2019","datePublished":"2019-02-19 23:04:40 &#43;0800 CST","dateModified":"2019-02-19 23:04:40 &#43;0800 CST","url":"https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/","wordCount":"99","keywords":["函数","Cpp","当然我在扯淡"]}</script></head><body><div class=wrapper><nav class=navbar><div class=container><div class="navbar-header header-logo"><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://mukhali.github.io>当然我在扯淡</a></div><div class="menu navbar-right"><a class=menu-item href=/posts/>博客</a>
+<a class=menu-item href=/categories/>类别</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/about/>关于</a></div></div></nav><nav class=navbar-mobile id=nav-mobile style=display:none><div class=container><div class=navbar-header><div><a href=javascript:void(0); class=theme-switch><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href=https://mukhali.github.io>当然我在扯淡</a></div><div class=menu-toggle><span></span><span></span><span></span></div></div><div class=menu id=mobile-menu><a class=menu-item href=/posts/>博客</a>
+<a class=menu-item href=/categories/>类别</a>
+<a class=menu-item href=/tags/>标签</a>
+<a class=menu-item href=/about/>关于</a></div></div></nav><main class=main><div class=container><article class=post-warp itemscope itemtype=http://schema.org/Article><header class=post-header><h1 class=post-title itemprop="name headline">Cpp语言回调函数</h1><div class=post-meta>Written by <a itemprop=name href=https://mukhali.github.io rel=author>mukhali</a> with ♥
+<span class=post-time>on <time datetime=2019-02-19 itemprop=datePublished>February 19, 2019</time></span>
+in
+<i class="iconfont icon-folder"></i><span class=post-category><a href=https://mukhali.github.io/categories/%E7%8E%A9%E5%85%B7/>玩具</a></span>
+|
+<a href=#gitalk-container itemprop=discussionUrl><span class=gitalk-comment-count itemprop=commentCount></span></a>条评论</div></header><div class=post-toc id=post-toc><h2 class=post-toc-title></h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#0x00-引言>0x00 引言</a></li><li><a href=#0x01-函数指针>0x01 函数指针</a></li><li><a href=#0x02-cpp调用>0x02 Cpp调用</a></li><li><a href=#0x03-update>0x03 UPDATE</a></li></ul></li></ul></nav></div></div><script type=text/javascript>window.onload=function(){var fix=$('.post-toc');var end=$('.post-comment');var fixTop=fix.offset().top,fixHeight=fix.height();var endTop,miss;var offsetTop=fix[0].offsetTop;$(window).scroll(function(){var docTop=Math.max(document.body.scrollTop,document.documentElement.scrollTop);if(end.length>0){endTop=end.offset().top;miss=endTop-docTop-fixHeight;}
+if(fixTop<docTop){fix.css({'position':'fixed'});if((end.length>0)&&(endTop<(docTop+fixHeight))){fix.css({top:miss});}else{fix.css({top:0});}}else{fix.css({'position':'absolute'});fix.css({top:offsetTop});}})}</script><div class=post-content><h2 id=0x00-引言>0x00 引言</h2><blockquote><p>想注册一个公众号，我好像文笔不是很好，我有很多内容可写，时间和文笔去哪儿找。</p><p>Pytorch 1.0 才发布不久，但整个机器学习领域很成熟了，可以弥补不足。</p></blockquote><h2 id=0x01-函数指针>0x01 函数指针</h2><pre><code class=language-C>struct IDataReader
+{
+	virtual void ReadCallbackFunc(std::string topicName) = 0;
+};
+
+class Subscriber
+{
+public:
+	Subscriber();
+	~Subscriber();
+
+	bool SetCallback(IDataReader* iReader)
+	{
+		_process = iReader;
+		_process(&quot;callback&quot;);
+		return true;
+	}
+
+private:
+	IDataReader * _process;
+};
+
+
+</code></pre><h2 id=0x02-cpp调用>0x02 Cpp调用</h2><p>具体代码如下：</p><pre><code class=language-C>
+class Example_Subscriber : IDataReader
+{
+public:
+	Example_Subscriber() {};
+	~Example_Subscriber();
+	void example_subscriber_main();
+	void CallbackFunc(std::string topicName);
+
+private:
+	Subscriber * subscriberPtr;
+};
+
+Example_Subscriber::Example_Subscriber()
+{
+	subscriberPtr = new Subscriber();
+}
+
+Example_Subscriber::~Example_Subscriber()
+{
+	delete subscriberPtr;
+}
+
+void Example_Subscriber::example_subscriber_main()
+{
+	subscriberPtr-&gt;SetCallback(this);
+}
+
+void Example_Subscriber::CallbackFunc(std::string topicName)
+{
+	printf(topicName);
+}
+
+int main()
+{
+	Example_Subscriber * sub = new Example_Subscriber();
+	sub-&gt;subscriber_main();
+}
+</code></pre><h2 id=0x03-update>0x03 UPDATE</h2><pre><code class=language-Bash>2019-03-01
+</code></pre></div><div class=post-copyright><p class=copyright-item><span>Author:</span>
+<span>mukhali</span></p><p class=copyright-item><span>Link:</span>
+<a href=https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/><script>document.write(decodeURI(location.origin+location.pathname))</script></a></p></div><div class=post-tags><section><i class="iconfont icon-tag"></i>Tag(s):
+<span class=tag><a href=https://mukhali.github.io/tags/%E5%87%BD%E6%95%B0/>#函数</a></span>
+<span class=tag><a href=https://mukhali.github.io/tags/cpp/>#Cpp</a></span></section><section><a href=javascript:window.history.back();>back</a></span> ·
+<span><a href=https://mukhali.github.io>home</a></span></section></div><div class=post-nav><a href=https://mukhali.github.io/2019/c%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/ class=prev rel=prev title=C语言回调函数><i class="iconfont icon-left"></i>&nbsp;C语言回调函数</a></div></article><div class=post-comment><div id=gitalk-container class=gitalk-container></div><link rel=stylesheet href=/lib/gitalk/gitalk-1.2.2.min.css><script src=/lib/gitalk/gitalk-1.2.2.min.js></script><script type=text/javascript>var gitalk=new Gitalk({id:'948841a54d6b563bfb985a12679723ac',title:'Cpp语言回调函数',clientID:'2c80562a372523adfc47',clientSecret:'5557c6e2592e63b963b7087078a703729f04fdde',repo:'mukhali.github.com',owner:'mukhali',admin:['mukhali'],body:decodeURI(location.href)});gitalk.render('gitalk-container');</script><noscript>Please enable JavaScript to view the
+<a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript></div></div></main><footer class=footer><div class=copyright>&copy;
+<span itemprop=copyrightYear>2016 - 2019</span>
+<span class=with-love><i class="iconfont icon-love"></i></span><span class=author itemprop=copyrightHolder><a href=https://mukhali.github.io>mukhali</a></span></div></footer><script src=/js/vendor_no_gallery.min.js async></script></div></body></html>
