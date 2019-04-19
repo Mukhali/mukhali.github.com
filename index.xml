@@ -2,8 +2,8 @@
 &lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/beijingtravel.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;东京大学入学祝词：等着你的，是个努力也得不到回报的社会。
-爷爷说：在外面好好弄，莫担心他。&lt;/p&gt;
+&lt;p&gt;东京大学入学祝词：等着你的，是个努力也得不到回报的社会。&lt;/p&gt;
+&lt;p&gt;爷爷说：在外面好好弄，莫担心他。(或许只有这些老人才让我有些动力，因为他们永远会觉得满足。)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;0x01-场景&#34;&gt;0x01 场景&lt;/h2&gt;
 &lt;p&gt;两块 SSD 硬盘，准备装 Win 10 和 Ubuntu 18.04 双系统，每块硬盘分两个区：EFI 引导区和系统盘。&lt;/p&gt;
@@ -44,9 +44,8 @@ sudo reboot
 &lt;p&gt;dmesg|grep -i nvidia&lt;/p&gt;
 &lt;p&gt;nvidia-smi&lt;/p&gt;
 &lt;p&gt;sudo apt-get install ubuntu-drivers-common -y&lt;/p&gt;
-&lt;p&gt;或许只有这些老人才让我有些动力，因为他们永远会觉得满足。&lt;/p&gt;
 &lt;p&gt;不做自己难受的事情。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/follow-me.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>Cpp语言回调函数</title><link>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 19 Feb 2019 23:04:40 +0800</pubDate><guid>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</guid><description>
+&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/qrcode_for_gh_151.0.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>Cpp语言回调函数</title><link>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 19 Feb 2019 23:04:40 +0800</pubDate><guid>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</guid><description>
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;想注册一个公众号，我好像文笔不是很好，我有很多内容可写，时间和文笔去哪儿找。&lt;/p&gt;
