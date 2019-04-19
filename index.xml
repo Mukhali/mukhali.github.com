@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>当然我在扯淡 on 当然我在扯淡</title><link>https://mukhali.github.io/</link><description>Recent content in 当然我在扯淡 on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 19 Feb 2019 23:04:40 +0800</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>Cpp语言回调函数</title><link>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 19 Feb 2019 23:04:40 +0800</pubDate><guid>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>当然我在扯淡 on 当然我在扯淡</title><link>https://mukhali.github.io/</link><description>Recent content in 当然我在扯淡 on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 18 Apr 2019 22:55:46 +0800</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>Win10和Ubuntu18.04多显卡的双系统安装</title><link>https://mukhali.github.io/2019/win10%E5%92%8Cubuntu18.04%E5%A4%9A%E6%98%BE%E5%8D%A1%E7%9A%84%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</link><pubDate>Thu, 18 Apr 2019 22:55:46 +0800</pubDate><guid>https://mukhali.github.io/2019/win10%E5%92%8Cubuntu18.04%E5%A4%9A%E6%98%BE%E5%8D%A1%E7%9A%84%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</guid><description>
+&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/beijingtravel.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;东京大学入学祝词：等着你的，是个努力也得不到回报的社会。
+爷爷说：在外面好好弄，莫担心他。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0x01-场景&#34;&gt;0x01 场景&lt;/h2&gt;
+&lt;p&gt;两块 SSD 硬盘，准备装 Win 10 和 Ubuntu 18.04 双系统，每块硬盘分两个区：EFI 引导区和系统盘。&lt;/p&gt;
+&lt;p&gt;先安装Win 10系统，后安装 Ubuntu 18.04。&lt;/p&gt;
+&lt;h2 id=&#34;0x02-卡着&#34;&gt;0x02 卡着&lt;/h2&gt;
+&lt;p&gt;Win 10 好安装，但当安装 Ubuntu 18.04 的时候会卡在 GUI 界面，鼠标和键盘都不能动。所以需要在
+Ubuntu 进入 install Ubuntu 界面的时候按 e 键，将第二行的 quiet splash - - - 修改成 quiet splash nomodeset。nomodeset表示用电脑集显来进行显示。然后按F10继续安装。&lt;/p&gt;
+&lt;h2 id=&#34;0x03-安装驱动&#34;&gt;0x03 安装驱动&lt;/h2&gt;
+&lt;p&gt;安装好系统后，及需要安装显卡驱动了，要不然系统会很卡很卡。安装驱动大概有三种方法，选择一个有效
+的就可以，不需要三个都用。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;sudo apt-get update -y
+sudo apt-get upgrade -y
+ubuntu-drivers devices
+sudo ubuntu-drivers autoinstall
+sudo reboot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo add-apt-repository -y ppa:graphics-drivers/ppa
+sudo apt-get update -y
+sudo ubuntu-drivers autoinstall
+sudo reboot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;从官方下载驱动安装
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x04-双启&#34;&gt;0x04 双启&lt;/h2&gt;
+&lt;p&gt;安装好之后，每次启动还是只能进入 Ubuntu 系统，需要将 Win 10 加入 Ubuntu 的引导。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;sudo update-grub2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x05-碎碎念&#34;&gt;0x05 碎碎念&lt;/h2&gt;
+&lt;p&gt;F2 用于修改 BIOS。&lt;/p&gt;
+&lt;p&gt;F8 用于选择启动盘。&lt;/p&gt;
+&lt;p&gt;制作系统盘的工具有很多。&lt;/p&gt;
+&lt;p&gt;quiet splash &amp;mdash;（quiet splash acpi=off）&lt;/p&gt;
+&lt;p&gt;quiet splash &amp;mdash;（quiet splash nomodeset）&lt;/p&gt;
+&lt;p&gt;quiet splash &amp;mdash;（quiet splash i915.modeste=0 nouveau.modeset=0 nomodeset）&lt;/p&gt;
+&lt;p&gt;lspci|grep -i nvidia&lt;/p&gt;
+&lt;p&gt;dmesg|grep -i nvidia&lt;/p&gt;
+&lt;p&gt;nvidia-smi&lt;/p&gt;
+&lt;p&gt;sudo apt-get install ubuntu-drivers-common -y&lt;/p&gt;
+&lt;p&gt;或许只有这些老人才让我有些动力，因为他们永远会觉得满足。&lt;/p&gt;
+&lt;p&gt;不做自己难受的事情。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/follow-me.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>Cpp语言回调函数</title><link>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 19 Feb 2019 23:04:40 +0800</pubDate><guid>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</guid><description>
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;想注册一个公众号，我好像文笔不是很好，我有很多内容可写，时间和文笔去哪儿找。&lt;/p&gt;
