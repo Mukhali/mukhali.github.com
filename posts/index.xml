@@ -1,10 +1,54 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 当然我在扯淡</title><link>https://mukhali.github.io/posts/</link><description>Recent content in Posts on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 18 Apr 2019 22:55:46 +0800</lastBuildDate><atom:link href="https://mukhali.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Win10和Ubuntu18.04多显卡的双系统安装</title><link>https://mukhali.github.io/2019/win10%E5%92%8Cubuntu18.04%E5%A4%9A%E6%98%BE%E5%8D%A1%E7%9A%84%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</link><pubDate>Thu, 18 Apr 2019 22:55:46 +0800</pubDate><guid>https://mukhali.github.io/2019/win10%E5%92%8Cubuntu18.04%E5%A4%9A%E6%98%BE%E5%8D%A1%E7%9A%84%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</guid><description>0x00 引言 东京大学入学祝词：等着你的，是个努力也得不到回报的社会。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 当然我在扯淡</title><link>https://mukhali.github.io/posts/</link><description>Recent content in Posts on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 22 May 2019 20:50:53 +0800</lastBuildDate><atom:link href="https://mukhali.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>华为2019年5月</title><link>https://mukhali.github.io/2019/%E5%8D%8E%E4%B8%BA2019%E5%B9%B45%E6%9C%88/</link><pubDate>Wed, 22 May 2019 20:50:53 +0800</pubDate><guid>https://mukhali.github.io/2019/%E5%8D%8E%E4%B8%BA2019%E5%B9%B45%E6%9C%88/</guid><description>0x00 引言 国家机器，个人信仰，公司理想。
+0x01 华为极限生存 2019年05月15日，美国商务部在其官网发布一则新闻。表示BIS已经把华为公司加入Entity List（实体清单）， 理由是华为从事的活动违反了美国国家安全。进入这个名单后，很多美国公司无法向华为销售产品。之前中兴也是因 为这个原因，被撤换了管理层，缴纳了罚款。
+因为技术封锁，华为启用了备胎芯片。
+0x02 华为与联想 之后网上传言联想依据法律对华为断供。联想发布了好几份申明澄清事实。
+0x03 华为与Google 路透社曝光称Google母公司Alphabet已按特朗普要求，停止与华为相关的业务和服务，涉及硬件、软件和技术服务方面，包括禁用Google服务。以后华为新设备将无法使用Google服务。
+0x04 Github和Apache Apache 软件基金会官网上发布了EXPORTING ASF PRODUCTS，其中包括这么一句话：U.S. export laws and regulations apply to our distributions and remain in force as products and technology are re-exported to different parties and places around the world.
+Github 全球最大源代码托管网站也发布了GitHub and Export Controls，其中包括这么一句话：GitHub.com, GitHub Enterprise Server, and the information you upload to either product may be subject to US export control laws, including U.</description></item><item><title>Ubuntu如何安装Docker-CE</title><link>https://mukhali.github.io/2019/ubuntu%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85docker-ce/</link><pubDate>Fri, 17 May 2019 20:44:27 +0800</pubDate><guid>https://mukhali.github.io/2019/ubuntu%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85docker-ce/</guid><description>0x00 引言 Docker 是我最喜欢的工具，但好像对我来是只是很好的工具，我不知道。
+0x01 安装 Docker-CE Ubuntu 官方没有 Docker-CE，只能去使用 Docker 公司维护的库。具体添加方法如下：
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable edge test&amp;quot; sudo apt update sudo apt install Docker-CE 先添加key，再添加库。
+stable 是 Docker 公司的季度发布包。
+edge 是 Docker 公司的月发布包。
+test 是 Docker 公司的测试版。
+比如到2019年05月22日为止， Ubuntu 19.04 还没有释放 stable， edge版Docker。但可以安装 test 版 Docker。
+0x02 设置 通过下面命令来查看 Docker 运行状态。
+sudo systemctl status docker # 查看 Docker 运行状态 默认是开启启动 Docker Deamon。我好像不喜欢这样，所以我会使用下面的命令禁止开机启动 Docker Deamon。</description></item><item><title>贝聿铭之苏州博物馆</title><link>https://mukhali.github.io/2019/%E8%B4%9D%E8%81%BF%E9%93%AD%E4%B9%8B%E8%8B%8F%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86/</link><pubDate>Fri, 17 May 2019 20:17:37 +0800</pubDate><guid>https://mukhali.github.io/2019/%E8%B4%9D%E8%81%BF%E9%93%AD%E4%B9%8B%E8%8B%8F%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86/</guid><description>0x00 引言 我可以封山，但还是会出作品。
+0x01 狮子林 狮子林是苏州四大园林之一，始建与元代。狮子林在1917年是贝氏所有，贝氏引入西洋造园手法，将其建设成包括贝氏祠堂，贝氏族学等一体的园林。。贝聿铭出生在广东，小时候贝聿铭在这儿生活过，后来去了上海，去了美国留学。其父亲是中国银行创始人之一。
+0x02 拙政园 拙政园也是苏州四大园林之一，始建于明朝，因王献臣官场失意而还乡。恩，狮子林往北不远也就是拙政园了。拙政园西边也就是苏州博物馆所在地了。苏州博物馆就是拆了一座医院和部分拙政园修建起来的。占地不是很大，但很耐看。苏州博物馆很舒服，光影和空间结构很好。
+苏州博物馆很好看，就是太小，当然还有一个新馆也正在建设中。
+0x04 后记 贝聿铭的作品还有法国卢浮宫的玻璃金字塔，香港中银大厦，南京六朝博物馆……。</description></item><item><title>OpenCV历史</title><link>https://mukhali.github.io/2019/opencv%E5%8E%86%E5%8F%B2/</link><pubDate>Thu, 25 Apr 2019 21:41:48 +0800</pubDate><guid>https://mukhali.github.io/2019/opencv%E5%8E%86%E5%8F%B2/</guid><description>0x00 引言 最近在看 OpenCV 好想用OpenCV 4，但考虑到生态，还是用 OpenCV 3.4.2。稍微了解了一下 OpenCV 的历史。这些年来，计算机视觉领域的新技术新方法不断涌现，指令集、编程语言和并行化技术越发先进，OpenCV 也在顺应潮流。
+0x01 OpenCV 1.x 就像很多程序一样，OpenCV 是基于C语言开发。2006年10月发布1.0，其中已经有了random trees、boosted trees、neural nets等机器学习方法。
+2008年10月1.1pre1发布，使用 VS2005构建，Python bindings支持Python 2.6，Linux下支持Octave bindings，在这一版本中加入了SURF、RANSAC、Fast approximate nearest neighbor search等，Face Detection (cvHaarDetectObjects)也变得更快。
+0x02 OpenCV 2.x 代码量的增加，C++的流行，OpenCV 2.x发布时，其尽量使用C++而不是C，但是为了向前兼容，仍保留了对C API的支持。从2010年开始，2.x决定不再频繁支持和更新C API，而是focus在C++ API。
+2009年9月2.0 beta发布，主要使用CMake构建，加入了很多新特征、描述子等，如FAST、LBP等。
+2010年10月2.2版本发布，OpenCV的模块变成了大家熟悉的模样，像opencv_imgproc、opencv_features2d等，同时用opencv_contrib放置尚未成熟的代码，opencv_gpu放置使用CUDA加速的OpenCV函数。
+2011年6月起的2.3.x版本、2012年4月起的2.4.x版本，一面增加新方法，一面修复bug，同时加强对GPU、Java for Android、 OpenCL、并行化的支持等等，OpenCV愈加稳定完善，值得注意的是 SIFT和SURF从2.4开始被放到了nonfree 模块（因为专利）。
+考虑到过渡，OpenCV 2.4.x仍在维护，不过以后可能仅做bug修复和效率提升，不再增加新功能——鼓励向3.x迁移。
+0x03 OpenCV 3.x 随着3.x的发布，1.x的C API将被淘汰不再被支持，以后C API可能通过C++源代码自动生成。3.x与2.x不完全兼容，与2.x相比，主要的不同之处在于OpenCV 3.x 的大部分方法都使用了OpenCL加速。3.x默认包含以及使用IPP，同时，matlab bindings、Face Recognition、SIFT、SURF、 text detector、motion templates &amp;amp; simple flow 等都移到了opencv_contrib下（opencv_contrib不仅存放了尚未稳定的代码，同时也存放了涉及专利保护的技术实现），大量涌现的新方法也包含在其中。
+2017年8月3.3版本，2017年12月开始的3.4.x版本，opencv_dnn从opencv_contrib移至opencv，同时OpenCV开始支持C++ 11构建，之后明显感到对神经网络的支持在加强，opencv_dnn被持续改进和扩充。
+0x04 OpenCV 4.</description></item><item><title>Win10和Ubuntu18.04多显卡的双系统安装</title><link>https://mukhali.github.io/2019/win10%E5%92%8Cubuntu18.04%E5%A4%9A%E6%98%BE%E5%8D%A1%E7%9A%84%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</link><pubDate>Thu, 18 Apr 2019 22:55:46 +0800</pubDate><guid>https://mukhali.github.io/2019/win10%E5%92%8Cubuntu18.04%E5%A4%9A%E6%98%BE%E5%8D%A1%E7%9A%84%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</guid><description>0x00 引言 东京大学入学祝词：等着你的，是个努力也得不到回报的社会。
 爷爷说：在外面好好弄，莫担心他。(或许只有这些老人才让我有些动力，因为他们永远会觉得满足。)
 0x01 场景 两块 SSD 硬盘，准备装 Win 10 和 Ubuntu 18.04 双系统，每块硬盘分两个区：EFI 引导区和系统盘。
 先安装Win 10系统，后安装 Ubuntu 18.04。
 0x02 卡着 Win 10 好安装，但当安装 Ubuntu 18.04 的时候会卡在 GUI 界面，鼠标和键盘都不能动。所以需要在 Ubuntu 进入 install Ubuntu 界面的时候按 e 键，将第二行的 quiet splash - - - 修改成 quiet splash nomodeset。nomodeset表示用电脑集显来进行显示。然后按F10继续安装。
-0x03 安装驱动 安装好系统后，及需要安装显卡驱动了，要不然系统会很卡很卡。安装驱动大概有三种方法，选择一个有效 的就可以，不需要三个都用。
-sudo apt-get update -y sudo apt-get upgrade -y ubuntu-drivers devices sudo ubuntu-drivers autoinstall sudo reboot sudo apt-get update -y sudo apt-get upgrade -y sudo add-apt-repository -y ppa:graphics-drivers/ppa sudo apt-get update -y sudo ubuntu-drivers autoinstall sudo reboot 从官方下载驱动安装 0x04 双启 安装好之后，每次启动还是只能进入 Ubuntu 系统，需要将 Win 10 加入 Ubuntu 的引导。</description></item><item><title>Cpp语言回调函数</title><link>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 19 Feb 2019 23:04:40 +0800</pubDate><guid>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</guid><description> 0x00 引言 想注册一个公众号，我好像文笔不是很好，我有很多内容可写，时间和文笔去哪儿找。
+0x03 安装驱动 安装好系统后，就需要安装显卡驱动了，要不然下次启动系统的时候又很慢。安装驱动大概有三种方法，选择一个有效 的就可以，不需要三个都用。
+sudo apt-get update -y sudo apt-get upgrade -y ubuntu-drivers devices sudo ubuntu-drivers autoinstall sudo reboot sudo apt-get update -y sudo apt-get upgrade -y sudo add-apt-repository -y ppa:graphics-drivers/ppa sudo apt-get update -y sudo ubuntu-drivers autoinstall sudo reboot 从官方下载驱动安装 0x04 双启 安装好之后，每次启动还是只能进入 Ubuntu 系统，需要将 Win 10 加入 Ubuntu 的引导。</description></item><item><title>北京，那些值得闲逛的地方</title><link>https://mukhali.github.io/2019/%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84%E5%8C%97%E4%BA%AC/</link><pubDate>Sun, 14 Apr 2019 14:26:32 +0800</pubDate><guid>https://mukhali.github.io/2019/%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84%E5%8C%97%E4%BA%AC/</guid><description>0x00 引言 旅游最好的方法：买几本书，去那儿看365个日出。
+0x01 故宫 很多人来北京了纠结去哪儿？我最推荐去的地方要数故宫了。故宫是一根针线，能串起好多好多，对于是好多什么，我无法知道你的答案。故宫会给每个人不一样的答案。
+故宫是一座皇城，就像英国的白金汉宫，法过的凡尔赛宫一样，是帝王起居和办公的地方。现在的故宫格局继承于明朝永乐帝。现在的北京城如果和南城这座旧城来比是一座重新规划的城市。
+0x02 国博 国博就是国家博物馆，是集全国之力全力建设的国家博物馆。去故宫不能预测你能看到什么，但去国博我大概能知道你能看到什么。国博是建国10周年的献礼之一，线索就是这个国家上下五千年，从夏商周，到改革开放。
+0x03 恭王府 恭王府原是和第，和珅府邸。和珅跌倒，嘉庆吃饱。嘉庆赏赐给了王爷，这座和珅全力营造的府邸从此也就成了王府。
+恭王府旁边是有着白塔的北海，北海也是曾经老炮儿解决问题的地方、有前海、当然也有史铁生积蓄力量的什刹海。旁边更有皇家园林：颐和园、圆明园。恭王府的位置是真的好。
+你如果去韩国看了皇宫，你就会觉得恭王府比你觉得的还要好。恭王府还曾是“鬼子六”的府邸。
+0x04 国子监 国子监旁边就是出了两位清帝王的雍和宫。雍和宫旁边低矮的老北京民房，衬托出雍和宫的高大。
+国子监又称“太学”，以前能再国子监读书的学生称为“监生”。国子监在以前应该是相当于人民大学？当然也有可能是北大清华？我上学的东山书院相当于现在的初高中吧。
+国子监旁边是孔庙，孔庙作为精神上独尊儒术的物质存在，那儿的一板一眼还是值得看看。那附近的下马石也是为孔庙安置的。
+0x05 奥体 古代未必差，现代也未必差。看过了过往，被满眼低矮的北京老民居厌恶了的精神，你该去奥体，那儿为奥运会展现了很多现代的东西：鸟巢、水立方。当然当年未来恢复北京中轴线发了很大力气的。奥体也属于中轴线的一部分。
+奥森那儿好多跑步的，周末好去处，最好的季节还是春秋。北京的秋是出了名的好，加上营造二字那就更了得。
+0x06 城墙 北京的城墙很高大，作为帝都，它的城墙是最完善，最雄伟，最完整的。奥，对了，那是以前的时候，现在想看城墙就不必来北京了，你去买张西安票。北京曾经有外城、内城和皇城三重城墙。
+0x07 碎碎念 北京前门火车站应该很有意思，只是好像进不去。
+中关村原名“中官村”，是李莲英等买来作为退休太监的墓园的地方。
+记得曾经有人说过：成名要趁早。
+长城也可以去看，看长城看的不是长或者城，看的是山势。</description></item><item><title>Cpp语言回调函数</title><link>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 19 Feb 2019 23:04:40 +0800</pubDate><guid>https://mukhali.github.io/2019/cpp%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</guid><description> 0x00 引言 想注册一个公众号，我好像文笔不是很好，我有很多内容可写，时间和文笔去哪儿找。
 Pytorch 1.0 才发布不久，但整个机器学习领域很成熟了，可以弥补不足。
 0x01 函数指针 struct IDataReader { virtual void ReadCallbackFunc(std::string topicName) = 0; }; class Subscriber { public: Subscriber(); ~Subscriber(); bool SetCallback(IDataReader* iReader) { _process = iReader; _process(&amp;quot;callback&amp;quot;); return true; } private: IDataReader * _process; }; 0x02 Cpp调用 具体代码如下：
 class Example_Subscriber : IDataReader { public: Example_Subscriber() {}; ~Example_Subscriber(); void example_subscriber_main(); void CallbackFunc(std::string topicName); private: Subscriber * subscriberPtr; }; Example_Subscriber::Example_Subscriber() { subscriberPtr = new Subscriber(); } Example_Subscriber::~Example_Subscriber() { delete subscriberPtr; } void Example_Subscriber::example_subscriber_main() { subscriberPtr-&amp;gt;SetCallback(this); } void Example_Subscriber::CallbackFunc(std::string topicName) { printf(topicName); } int main() { Example_Subscriber * sub = new Example_Subscriber(); sub-&amp;gt;subscriber_main(); } 0x03 UPDATE 2019-03-01</description></item><item><title>C语言回调函数</title><link>https://mukhali.github.io/2019/c%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</link><pubDate>Tue, 19 Feb 2019 22:00:21 +0800</pubDate><guid>https://mukhali.github.io/2019/c%E8%AF%AD%E8%A8%80%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</guid><description>0x00 引言 再简单的事情，也需要有人去做。

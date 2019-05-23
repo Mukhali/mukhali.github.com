@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 当然我在扯淡</title><link>https://mukhali.github.io/tags/docker/</link><description>Recent content in Docker on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 17 May 2019 20:44:27 +0800</lastBuildDate><atom:link href="https://mukhali.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Ubuntu如何安装Docker-CE</title><link>https://mukhali.github.io/2019/ubuntu%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85docker-ce/</link><pubDate>Fri, 17 May 2019 20:44:27 +0800</pubDate><guid>https://mukhali.github.io/2019/ubuntu%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85docker-ce/</guid><description>0x00 引言 Docker 是我最喜欢的工具，但好像对我来是只是很好的工具，我不知道。
+0x01 安装 Docker-CE Ubuntu 官方没有 Docker-CE，只能去使用 Docker 公司维护的库。具体添加方法如下：
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo add-apt-repository &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable edge test&amp;quot; sudo apt update sudo apt install Docker-CE 先添加key，再添加库。
+stable 是 Docker 公司的季度发布包。
+edge 是 Docker 公司的月发布包。
+test 是 Docker 公司的测试版。
+比如到2019年05月22日为止， Ubuntu 19.04 还没有释放 stable， edge版Docker。但可以安装 test 版 Docker。
+0x02 设置 通过下面命令来查看 Docker 运行状态。
+sudo systemctl status docker # 查看 Docker 运行状态 默认是开启启动 Docker Deamon。我好像不喜欢这样，所以我会使用下面的命令禁止开机启动 Docker Deamon。</description></item></channel></rss>
