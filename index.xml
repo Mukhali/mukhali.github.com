@@ -1,29 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>当然我在扯淡 on 当然我在扯淡</title><link>https://mukhali.github.io/</link><description>Recent content in 当然我在扯淡 on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 22 May 2019 20:50:53 +0800</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>华为2019年5月</title><link>https://mukhali.github.io/2019/%E5%8D%8E%E4%B8%BA2019%E5%B9%B45%E6%9C%88/</link><pubDate>Wed, 22 May 2019 20:50:53 +0800</pubDate><guid>https://mukhali.github.io/2019/%E5%8D%8E%E4%B8%BA2019%E5%B9%B45%E6%9C%88/</guid><description>
-&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/beijingtravel.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;国家机器，个人信仰，公司理想。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;0x01-华为极限生存&#34;&gt;0x01 华为极限生存&lt;/h2&gt;
-&lt;p&gt;2019年05月15日，美国商务部在其官网发布一则新闻。表示BIS已经把华为公司加入Entity List（实体清单），
-理由是华为从事的活动违反了美国国家安全。进入这个名单后，很多美国公司无法向华为销售产品。之前中兴也是因
-为这个原因，被撤换了管理层，缴纳了罚款。&lt;/p&gt;
-&lt;p&gt;因为技术封锁，华为启用了备胎芯片。&lt;/p&gt;
-&lt;h2 id=&#34;0x02-华为与联想&#34;&gt;0x02 华为与联想&lt;/h2&gt;
-&lt;p&gt;之后网上传言联想依据法律对华为断供。联想发布了好几份申明澄清事实。&lt;/p&gt;
-&lt;h2 id=&#34;0x03-华为与google&#34;&gt;0x03 华为与Google&lt;/h2&gt;
-&lt;p&gt;路透社曝光称Google母公司Alphabet已按特朗普要求，停止与华为相关的业务和服务，涉及硬件、软件和技术服务方面，包括禁用Google服务。以后华为新设备将无法使用Google服务。&lt;/p&gt;
-&lt;h2 id=&#34;0x04-github和apache&#34;&gt;0x04 Github和Apache&lt;/h2&gt;
-&lt;p&gt;Apache 软件基金会官网上发布了EXPORTING ASF PRODUCTS，其中包括这么一句话：U.S. export laws and regulations apply to our distributions and remain in force as products and technology are re-exported to different parties and places around the world.&lt;/p&gt;
-&lt;p&gt;Github 全球最大源代码托管网站也发布了GitHub and Export Controls，其中包括这么一句话：GitHub.com, GitHub Enterprise Server, and the information you upload to either product may be subject to US export control laws, including U.S. Export Administration Regulations (the EAR).&lt;/p&gt;
-&lt;h2 id=&#34;0x05-华为与微软&#34;&gt;0x05 华为与微软&lt;/h2&gt;
-&lt;p&gt;据美国科技媒体网站The Verge 5月21日报道，上周末，微软从在线商店删除了华为笔记本电脑列表，甚至在微软商店中无法搜索到华为的任何硬件设备。&lt;/p&gt;
-&lt;p&gt;据悉，华为MateBook X Pro是目前美国最好的笔记本电脑之一，如果没有了Windows许可，它或许将无法与MacBook Pro、惠普Spectre x360以及微软Surface系列相抗衡。&lt;/p&gt;
-&lt;h2 id=&#34;0x06-华为与ibm&#34;&gt;0x06 华为与IBM&lt;/h2&gt;
-&lt;h2 id=&#34;0x07-华为与arm&#34;&gt;0x07 华为与ARM&lt;/h2&gt;
-&lt;h2 id=&#34;0x06-后记&#34;&gt;0x06 后记&lt;/h2&gt;
-&lt;p&gt;据说华为自己研发了操作系统，之前发布会上公布了方舟编译器。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/qrcode_for_gh_151.0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>Ubuntu如何安装Docker-CE</title><link>https://mukhali.github.io/2019/ubuntu%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85docker-ce/</link><pubDate>Fri, 17 May 2019 20:44:27 +0800</pubDate><guid>https://mukhali.github.io/2019/ubuntu%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85docker-ce/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>当然我在扯淡 on 当然我在扯淡</title><link>https://mukhali.github.io/</link><description>Recent content in 当然我在扯淡 on 当然我在扯淡</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 17 May 2019 20:44:27 +0800</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>Ubuntu如何安装Docker-CE</title><link>https://mukhali.github.io/2019/ubuntu%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85docker-ce/</link><pubDate>Fri, 17 May 2019 20:44:27 +0800</pubDate><guid>https://mukhali.github.io/2019/ubuntu%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85docker-ce/</guid><description>
 &lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/beijingtravel.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -68,84 +43,6 @@ sudo systemctl stop docker # 关闭 Docker Deamon
 &lt;p&gt;大限到时，&lt;/p&gt;
 &lt;p&gt;不过是立在山巅，&lt;/p&gt;
 &lt;p&gt;江河回望。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/qrcode_for_gh_151.0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>贝聿铭之苏州博物馆</title><link>https://mukhali.github.io/2019/%E8%B4%9D%E8%81%BF%E9%93%AD%E4%B9%8B%E8%8B%8F%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86/</link><pubDate>Fri, 17 May 2019 20:17:37 +0800</pubDate><guid>https://mukhali.github.io/2019/%E8%B4%9D%E8%81%BF%E9%93%AD%E4%B9%8B%E8%8B%8F%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86/</guid><description>
-&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/beijingtravel.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我可以封山，但还是会出作品。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;0x01-狮子林&#34;&gt;0x01 狮子林&lt;/h2&gt;
-&lt;p&gt;狮子林是苏州四大园林之一，始建与元代。狮子林在1917年是贝氏所有，贝氏引入西洋造园手法，将其建设成包括贝氏祠堂，贝氏族学等一体的园林。。贝聿铭出生在广东，小时候贝聿铭在这儿生活过，后来去了上海，去了美国留学。其父亲是中国银行创始人之一。&lt;/p&gt;
-&lt;h2 id=&#34;0x02-拙政园&#34;&gt;0x02 拙政园&lt;/h2&gt;
-&lt;p&gt;拙政园也是苏州四大园林之一，始建于明朝，因王献臣官场失意而还乡。恩，狮子林往北不远也就是拙政园了。拙政园西边也就是苏州博物馆所在地了。苏州博物馆就是拆了一座医院和部分拙政园修建起来的。占地不是很大，但很耐看。苏州博物馆很舒服，光影和空间结构很好。&lt;/p&gt;
-&lt;p&gt;苏州博物馆很好看，就是太小，当然还有一个新馆也正在建设中。&lt;/p&gt;
-&lt;h2 id=&#34;0x04-后记&#34;&gt;0x04 后记&lt;/h2&gt;
-&lt;p&gt;贝聿铭的作品还有法国卢浮宫的玻璃金字塔，香港中银大厦，南京六朝博物馆……。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/qrcode_for_gh_151.0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>OpenCV历史</title><link>https://mukhali.github.io/2019/opencv%E5%8E%86%E5%8F%B2/</link><pubDate>Thu, 25 Apr 2019 21:41:48 +0800</pubDate><guid>https://mukhali.github.io/2019/opencv%E5%8E%86%E5%8F%B2/</guid><description>
-&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
-&lt;p&gt;最近在看 OpenCV 好想用OpenCV 4，但考虑到生态，还是用 OpenCV 3.4.2。稍微了解了一下 OpenCV 的&lt;a href=&#34;https://github.com/opencv/opencv/wiki/ChangeLog&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;历史&lt;/a&gt;。这些年来，计算机视觉领域的新技术新方法不断涌现，指令集、编程语言和并行化技术越发先进，OpenCV 也在顺应潮流。&lt;/p&gt;
-&lt;h2 id=&#34;0x01-opencv-1-x&#34;&gt;0x01 OpenCV 1.x&lt;/h2&gt;
-&lt;p&gt;就像很多程序一样，OpenCV 是基于C语言开发。2006年10月发布1.0，其中已经有了random trees、boosted trees、neural nets等机器学习方法。&lt;/p&gt;
-&lt;p&gt;2008年10月1.1pre1发布，使用 VS2005构建，Python bindings支持Python 2.6，Linux下支持Octave bindings，在这一版本中加入了SURF、RANSAC、Fast approximate nearest neighbor search等，Face Detection (cvHaarDetectObjects)也变得更快。&lt;/p&gt;
-&lt;h2 id=&#34;0x02-opencv-2-x&#34;&gt;0x02 OpenCV 2.x&lt;/h2&gt;
-&lt;p&gt;代码量的增加，C++的流行，OpenCV 2.x发布时，其尽量使用C++而不是C，但是为了向前兼容，仍保留了对C API的支持。从2010年开始，2.x决定不再频繁支持和更新C API，而是focus在C++ API。&lt;/p&gt;
-&lt;p&gt;2009年9月2.0 beta发布，主要使用CMake构建，加入了很多新特征、描述子等，如FAST、LBP等。&lt;/p&gt;
-&lt;p&gt;2010年10月2.2版本发布，OpenCV的模块变成了大家熟悉的模样，像opencv_imgproc、opencv_features2d等，同时用opencv_contrib放置尚未成熟的代码，opencv_gpu放置使用CUDA加速的OpenCV函数。&lt;/p&gt;
-&lt;p&gt;2011年6月起的2.3.x版本、2012年4月起的2.4.x版本，一面增加新方法，一面修复bug，同时加强对GPU、Java for Android、 OpenCL、并行化的支持等等，OpenCV愈加稳定完善，值得注意的是 SIFT和SURF从2.4开始被放到了nonfree 模块（因为专利）。&lt;/p&gt;
-&lt;p&gt;考虑到过渡，OpenCV 2.4.x仍在维护，不过以后可能仅做bug修复和效率提升，不再增加新功能——鼓励向3.x迁移。&lt;/p&gt;
-&lt;h2 id=&#34;0x03-opencv-3-x&#34;&gt;0x03 OpenCV 3.x&lt;/h2&gt;
-&lt;p&gt;随着3.x的发布，1.x的C API将被淘汰不再被支持，以后C API可能通过C++源代码自动生成。3.x与2.x不完全兼容，与2.x相比，主要的不同之处在于OpenCV 3.x 的大部分方法都使用了OpenCL加速。3.x默认包含以及使用IPP，同时，matlab bindings、Face Recognition、SIFT、SURF、 text detector、motion templates &amp;amp; simple flow 等都移到了opencv_contrib下（opencv_contrib不仅存放了尚未稳定的代码，同时也存放了涉及专利保护的技术实现），大量涌现的新方法也包含在其中。&lt;/p&gt;
-&lt;p&gt;2017年8月3.3版本，2017年12月开始的3.4.x版本，opencv_dnn从opencv_contrib移至opencv，同时OpenCV开始支持C++ 11构建，之后明显感到对神经网络的支持在加强，opencv_dnn被持续改进和扩充。&lt;/p&gt;
-&lt;h2 id=&#34;0x04-opencv-4-0&#34;&gt;0x04 OpenCV 4.0&lt;/h2&gt;
-&lt;p&gt;2018年10月4.0.0发布，继续清理 OpenCV 1.x 引入的 C API，开始需要支持C++11的编译器才能编译（不再需要设置flag -DENABLE_CXX11=ON），同时对几百个基础函数使用 &amp;ldquo;wide universal intrinsics&amp;rdquo;重写，这些内联函数可以根据目标平台和编译选项映射为SSE2、 SSE4、 AVX2、NEON 或者 VSX 内联函数，获得性能提升。此外，还加入了QR code的检测和识别，以及Kinect Fusion algorithm，DNN也在持续改善和扩充。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/qrcode_for_gh_151.0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>Win10和Ubuntu18.04多显卡的双系统安装</title><link>https://mukhali.github.io/2019/win10%E5%92%8Cubuntu18.04%E5%A4%9A%E6%98%BE%E5%8D%A1%E7%9A%84%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</link><pubDate>Thu, 18 Apr 2019 22:55:46 +0800</pubDate><guid>https://mukhali.github.io/2019/win10%E5%92%8Cubuntu18.04%E5%A4%9A%E6%98%BE%E5%8D%A1%E7%9A%84%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</guid><description>
-&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/beijingtravel.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;东京大学入学祝词：等着你的，是个努力也得不到回报的社会。&lt;/p&gt;
-&lt;p&gt;爷爷说：在外面好好弄，莫担心他。(或许只有这些老人才让我有些动力，因为他们永远会觉得满足。)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;0x01-场景&#34;&gt;0x01 场景&lt;/h2&gt;
-&lt;p&gt;两块 SSD 硬盘，准备装 Win 10 和 Ubuntu 18.04 双系统，每块硬盘分两个区：EFI 引导区和系统盘。&lt;/p&gt;
-&lt;p&gt;先安装Win 10系统，后安装 Ubuntu 18.04。&lt;/p&gt;
-&lt;h2 id=&#34;0x02-卡着&#34;&gt;0x02 卡着&lt;/h2&gt;
-&lt;p&gt;Win 10 好安装，但当安装 Ubuntu 18.04 的时候会卡在 GUI 界面，鼠标和键盘都不能动。所以需要在
-Ubuntu 进入 install Ubuntu 界面的时候按 e 键，将第二行的 quiet splash - - - 修改成 quiet splash nomodeset。nomodeset表示用电脑集显来进行显示。然后按F10继续安装。&lt;/p&gt;
-&lt;h2 id=&#34;0x03-安装驱动&#34;&gt;0x03 安装驱动&lt;/h2&gt;
-&lt;p&gt;安装好系统后，就需要安装显卡驱动了，要不然下次启动系统的时候又很慢。安装驱动大概有三种方法，选择一个有效
-的就可以，不需要三个都用。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;sudo apt-get update -y
-sudo apt-get upgrade -y
-ubuntu-drivers devices
-sudo ubuntu-drivers autoinstall
-sudo reboot
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo add-apt-repository -y ppa:graphics-drivers/ppa
-sudo apt-get update -y
-sudo ubuntu-drivers autoinstall
-sudo reboot
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;从官方下载驱动安装
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;0x04-双启&#34;&gt;0x04 双启&lt;/h2&gt;
-&lt;p&gt;安装好之后，每次启动还是只能进入 Ubuntu 系统，需要将 Win 10 加入 Ubuntu 的引导。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;sudo update-grub2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;0x05-碎碎念&#34;&gt;0x05 碎碎念&lt;/h2&gt;
-&lt;p&gt;F2 用于修改 BIOS。&lt;/p&gt;
-&lt;p&gt;F8 用于选择启动盘。&lt;/p&gt;
-&lt;p&gt;制作系统盘的工具有很多。&lt;/p&gt;
-&lt;p&gt;quiet splash &amp;mdash;（quiet splash acpi=off）&lt;/p&gt;
-&lt;p&gt;quiet splash &amp;mdash;（quiet splash nomodeset） $vt_handoff&lt;/p&gt;
-&lt;p&gt;quiet splash &amp;mdash;（quiet splash i915.modeste=0 nouveau.modeset=0 nomodeset）&lt;/p&gt;
-&lt;p&gt;quiet splash &amp;mdash;（nvme_load=YES）&lt;/p&gt;
-&lt;p&gt;lspci|grep -i nvidia&lt;/p&gt;
-&lt;p&gt;dmesg|grep -i nvidia&lt;/p&gt;
-&lt;p&gt;nvidia-smi&lt;/p&gt;
-&lt;p&gt;sudo apt-get install ubuntu-drivers-common -y&lt;/p&gt;
-&lt;p&gt;不做自己难受的事情。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/qrcode_for_gh_151.0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>北京，那些值得闲逛的地方</title><link>https://mukhali.github.io/2019/%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84%E5%8C%97%E4%BA%AC/</link><pubDate>Sun, 14 Apr 2019 14:26:32 +0800</pubDate><guid>https://mukhali.github.io/2019/%E6%88%91%E7%9C%BC%E4%B8%AD%E7%9A%84%E5%8C%97%E4%BA%AC/</guid><description>
 &lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/beijingtravel.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
@@ -704,5 +601,316 @@ print(&amp;quot;---------All Data Finished!--------&amp;quot;)
 &lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/washing_machine.jpeg&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;0x2-update&#34;&gt;0x2 UPDATE&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; 2018-12-31
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/qrcode_for_gh_151.0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>About</title><link>https://mukhali.github.io/about/</link><pubDate>Mon, 24 Dec 2018 11:38:26 +0800</pubDate><guid>https://mukhali.github.io/about/</guid><description>&lt;p&gt;您好！我不知道这是什么？&lt;/p&gt;
+&lt;p&gt;人越长大越不敢说自己会什么，简历中技能部分我会试着去不断的删减……&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;突然想起某人曾说：慢慢来，会比较快。&lt;/p&gt;
+&lt;p&gt;人到中年，开始老了，也更软了。经历的事情越多，越来越不敢嘲笑别人的脆弱。也越来越像个历史唯物主义者，相信常识，相信事物的客观规律。&lt;/p&gt;
+&lt;p&gt;环看周遭的人，哪一个不是千疮百孔。&lt;/p&gt;
+&lt;p&gt;我以前太刚了，相信自己一定是个幸运者，玩三国杀的时候喜欢用夏侯淳的“刚烈”，总之做不到温如玉。&lt;/p&gt;
+&lt;p&gt;过去总想让世界知道我，现在就希望这个世界忘记我，然后慢慢等待80岁的自己，会不会活的比爷爷或外公更舒适？&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Surely！！！！！ I Am Joking&lt;/p&gt;</description></item><item><title>Emacs喜欢神器</title><link>https://mukhali.github.io/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</link><pubDate>Tue, 08 Mar 2016 20:19:37 +0800</pubDate><guid>https://mukhali.github.io/2016/emacs%E5%96%9C%E6%AC%A2%E7%A5%9E%E5%99%A8/</guid><description>
+&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Emacs是一个操作系统级别Editor，最初由Richard Stallman(理查德·马修·斯托曼)于1975年在MIT协同Guy Steele共同完成。很可能有人喜欢UNIX哲学，而讨厌Emacs这种包含万物的行为。而我会说“我喜欢UNIX哲学，也拥抱Emacs”。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0x01-appointment&#34;&gt;0x01 Appointment&lt;/h2&gt;
+&lt;p&gt;在diary文件中编辑你的安排如下&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; Monday
+8:00am 该工作咯
+3:00pm 看会儿paper
+Tuesday
+8:00am 该工作咯
+3:00pm 看会儿paper
+Wednesday
+8:00am 该工作咯
+3:00pm 看会儿paper
+Thursday
+8:00am 该工作咯
+3:00pm 看会儿paper
+Friday
+8:00am 该工作咯
+3:00pm 看会儿paper
+* 1 清理一遍阅读列表，学习一个新主题
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在你自己的配置文件中添加以下代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (global-set-key (kbd &amp;quot;&amp;lt;f9&amp;gt;&amp;quot;)
+&#39;(lambda () (interactive)
+(progn
+(if (not (featurep &#39;appt))
+(appt-activate)
+(unless appt-timer
+(appt-activate)))
+))) ;quick access to Calendar and Diary
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;每次打开Emacs的时候，按f9就能激活提醒了。&lt;/p&gt;
+&lt;h2 id=&#34;0x02-calendar&#34;&gt;0x02 Calendar&lt;/h2&gt;
+&lt;p&gt;在生活中总有些节日不能错过，
+在过往的时间中总有些日子不能忘怀，
+在这世间总有些人不能不挂念，&lt;/p&gt;
+&lt;p&gt;那么cal-china-x就能登上舞台，解决你的这些问题了，它可以记录农历的节日，也可以记录阳历。每天打开Emacs就能看到近日的重要事件。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (if (&amp;lt; (string-to-number (format-time-string &amp;quot;%H&amp;quot;)) 9)
+(calendar)
+(switch-to-buffer &amp;quot;*scratch*&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x03-writeroom-mode&#34;&gt;0x03 writeroom mode&lt;/h2&gt;
+&lt;p&gt;当你在写作或者编码时，是不是不喜欢被打扰？那么这个包就是你想要的。还记当年流行全屏写作软件，到处找软件的日子吗？有过iA Writer使用经历吗？&lt;/p&gt;
+&lt;p&gt;在Emacs中，你安装writeroom包后，就能完全沉浸在自己快乐写作或编码中，不会有任何打扰。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://upload-images.jianshu.io/upload_images/673794-b25d5f45d64087d1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;Emacs写作&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;0x04-focus-mode&#34;&gt;0x04 focus mode&lt;/h2&gt;
+&lt;p&gt;当你写作或者编码时，是不是想减少关注点？那么focus包就是你要的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://upload-images.jianshu.io/upload_images/673794-7f7d53db072adbe6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;Emacs专注&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;0x05-auctex&#34;&gt;0x05 Auctex&lt;/h2&gt;
+&lt;p&gt;在使用Emacs之前，我一直使用TeXstudio作为TeXLive的前端，写作时使用Sublime。当你遇见Auctex时，你会喜欢上她的。&lt;/p&gt;
+&lt;h2 id=&#34;0x06-time-format&#34;&gt;0x06 Time Format&lt;/h2&gt;
+&lt;p&gt;当你全屏Emacs后，无法看到时间，你可以通过这个在mode line上看到时间奥。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (setq display-time-24hr-format t
+;; display-time-format &amp;quot;%d | %H:%M&amp;quot;
+;; display-time-day-and-date t
+;; display-time-interval 60
+display-time-default-load-average nil)
+(display-time-mode)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x07-org-pomodoro&#34;&gt;0x07 Org Pomodoro&lt;/h2&gt;
+&lt;p&gt;org-pomodoro自带的显示样式，太长。占地方，我需要短些的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (custom-set-variables
+&#39;(org-pomodoro-format &amp;quot;•%s&amp;quot;)
+&#39;(org-pomodoro-short-break-format &amp;quot;•%s&amp;quot;) )
+(add-hook &#39;org-pomodoro-finished-hook
+(lambda ()
+(mukhali/terminal-notifier-notify &amp;quot;Pomodoro&amp;quot; &amp;quot;time-for-relax&amp;quot;)))
+(add-hook &#39;org-pomodoro-short-break-finished-hook
+(lambda ()
+(mukhali/terminal-notifier-notify &amp;quot;Break-Completed&amp;quot; &amp;quot;ready-for-another?&amp;quot;)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://upload-images.jianshu.io/upload_images/673794-5c1cbfd6ee0cb8d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;定制后的显示样式&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;0x08-org-todo&#34;&gt;0x08 Org Todo&lt;/h2&gt;
+&lt;p&gt;任何事物默认设置永远不会是你想要的，就像QQ默认设置一样：不断打扰你，不断让你去社交。&lt;/p&gt;
+&lt;p&gt;Org 的设置还是需要定制的，根据自己的需求，使用频率去定制自己的方式。下面是我的一些基本定制内容。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (define-key global-map (kbd &amp;quot;&amp;lt;f7&amp;gt;&amp;quot;) &#39;org-agenda-list)
+(define-key global-map (kbd &amp;quot;&amp;lt;f9&amp;gt;&amp;quot;)
+(lambda () (interactive) (org-capture nil &amp;quot;w&amp;quot;)))
+(with-eval-after-load &#39;org-agenda
+(define-key org-agenda-mode-map (kbd &amp;quot;P&amp;quot;) &#39;org-pomodoro))
+;; (setq org-directory &amp;quot;~/org/&amp;quot;)
+(setq org-deadline-warning-days 4)
+(setq org-agenda-files (list
+&amp;quot;~/org/works.org&amp;quot;))
+(setq org-src-fontify-natively t)
+;; (setq org-default-notes-file (concat org-directory &amp;quot;notes.org&amp;quot;))
+;; (setq org-agenda-include-diary t)
+(setq org-refile-targets
+&#39;((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
+(setq org-todo-keywords
+&#39;((sequence &amp;quot;TODO(t)&amp;quot; &amp;quot;|&amp;quot; &amp;quot;DONE(d)&amp;quot; &amp;quot;CANCELED(c)&amp;quot;)))
+(setq org-capture-templates
+&#39;((&amp;quot;w&amp;quot; &amp;quot;I always arrive late at the office,
+but I make up for it by leaving early.&amp;quot;
+entry (file+headline &amp;quot;works.org&amp;quot; &amp;quot;Works&amp;quot;)
+&amp;quot;* TODO %?\n %i\n SCHEDULED: %t\n %a&amp;quot; :empty-lines 1)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x09-windows-notifier&#34;&gt;0x09 Windows notifier&lt;/h2&gt;
+&lt;p&gt;不喜欢Emacs自带的notifier，感谢开源运动，让我有解决方案可选。下面是我的定制。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt; (setq terminal-notifier-command
+&amp;quot;~/plugins/growlnotify.exe&amp;quot;)
+(defun mukhali/terminal-notifier-notify (title message)
+(shell-command-to-string
+(concat terminal-notifier-command
+&amp;quot; /t:&amp;quot; title
+&amp;quot; /i:&amp;quot; &amp;quot;~/plugins/emacs.png&amp;quot;)
+&amp;quot; &amp;quot; message)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x10-杂项&#34;&gt;0x10 杂项&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;;; Emacs 启动时所在的位置
+(setq default-frame-alist &#39;((left . 0) (top . 0) (width . 80) (height . 38)))
+;; 自己的一些Windows使用习惯
+(define-key global-map (kbd &amp;quot;M-&amp;lt;f4&amp;gt;&amp;quot;)
+(lambda () (interactive)
+(recentf-cleanup)
+(projectile-cleanup-known-projects)
+(spacemacs/save-buffers-kill-emacs)
+) )
+(define-key global-map (kbd &amp;quot;M-C-q&amp;quot;) &#39;winner-undo)
+(global-unset-key (kbd &amp;quot;C-x C-s&amp;quot;))
+(global-set-key (kbd &amp;quot;C-s&amp;quot;) &#39;save-buffer)
+;; 一些常用函数
+(defun mukhali/quick-folding-source ()
+(interactive)
+(set-selective-display
+(if selective-display nil 1)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x11-update&#34;&gt;0x11 UPDATE&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C&#34;&gt;2016-03-08
+2016-04-20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/qrcode_for_gh_151.0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item><item><title>Git喜欢版本管理</title><link>https://mukhali.github.io/2016/git%E5%96%9C%E6%AC%A2%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</link><pubDate>Tue, 19 Jan 2016 09:51:04 +0800</pubDate><guid>https://mukhali.github.io/2016/git%E5%96%9C%E6%AC%A2%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/</guid><description>
+&lt;h2 id=&#34;0x00-引言&#34;&gt;0x00 引言&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Git是一个分布式版本控制／软件配置管理软件，原是Linux内核开发者林纳斯·托瓦兹（Linus Torvalds）为更好地管理Linux内核开发而设计。本文记录了一些基本概念和基本操作，当然关于使用 Git 最重要的其实不是明白这些，而是掌握一些Git的使用模式。
+当你用上了Git，其它那些版本管理系统真的不想再动了。Git是我最喜欢的工具之一，另一个就是Emacs。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;0x01-关键字&#34;&gt;0x01 关键字&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; HEAD：指针
+工作区
+版本库(working tree)
+暂存区(index)：add命令将文件添加到暂存区
+已跟踪(staging)（未更新、已修改、已放入暂存区）
+未跟踪(unstage)
+仓库：commit将文件从暂存区添加到仓库
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x02-版本管理可以细分为&#34;&gt;0x02 版本管理可以细分为&lt;/h2&gt;
+&lt;p&gt;本地分支管理、远程分支管理、补丁管理、暂存（index）管理、&lt;/p&gt;
+&lt;h2 id=&#34;0x03-安装&#34;&gt;0x03 安装&lt;/h2&gt;
+&lt;p&gt;如果你是在Debian，Ubuntu系统中，那么你可以通过下面命令安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; sudo apt-get install git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果你是在Red Hat，Fedora系统中，那么你可以通过下面命令安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; sudo yum install git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我是通过下面这条命令来安装的：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; pacman -S git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x04-配置&#34;&gt;0x04 配置&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git config --global user.name &amp;quot;name&amp;quot;
+git config --global user.email &amp;quot;name@gmail.com&amp;quot;
+git config --global color.ui true
+git config core.ignorecase false
+git config -l #list all the Git config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样配置完后，保存在~/.gitconfig&lt;/p&gt;
+&lt;h2 id=&#34;0x05-查看帮助&#34;&gt;0x05 查看帮助&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git help
+git help -show #查看show命令的子命令
+git add -h #查看git add命令的帮助文件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x06-常用命令-查看-添加-提交-删除-找回-重置&#34;&gt;0x06 常用命令（查看、添加、提交、删除、找回、重置）&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git show 356f6def9d3fb7f3b9032ff5aa4b9110d4cca87e
+#（哈希值，可以是具体某个文件的，也可以是某一次全部提交）
+checkout #重写工作区
+git co（git co HEAD） #汇总显示工作区、暂存区与HEAD的差异
+git co master #取出master版本的HEAD
+git co -- filename #把filename文件从HEAD中checkouut。
+#相当于取消自上次执行git add filename以来的本地修改。
+git co branch --filename #用branch分支filename 来替换暂存区和工作区文件。
+git co . (git co -- .) #用暂存区的文件代替所有现有项目文件。
+git add #命令主要用于把我们要提交的文件的信息添加到索引库(暂存区)中。
+#当我们使用git commit时，git将依据索引库中的内容来进行文件的提交。
+git add filename
+git add . #将修改过的工作文件提交暂存区
+git add -u
+#表示 add to index only files modified or deleted and not those created
+git add -i [&amp;lt;path&amp;gt;] #命令查看&amp;lt;path&amp;gt;中被所有修改过或已删除文件但没有提交的文件。
+git ci #是将那些已经add到暂存区的文件commit到库中。
+git ci filemame
+git ci .
+git ci -a #将git add, git rm和git commit等操作都合并在一起做。
+git ci -m &amp;quot;what u want to &amp;quot;
+git ci -am &amp;quot;what u want to &amp;quot;
+git ci -amend #?
+git rm filename #删除文件，并从版本库中删除。
+git rm -r dire #删除文件，并从库中移除。
+git rm filename --cached #从版本库中删除文件，但不删除文件。
+reset #命令可以去掉一些多余的状态和版本信息。
+git reset [--hard|soft|mixed|merge|keep] [brank or HEAD] #reset命令是有mode的。
+git reset filename
+git reset -- .
+git resert --hard #恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改
+git revert
+#撤销某次操作，此次操作之前和之后的commit和history都会保留，并且把这次撤销作为一次最新的提交
+git revert HEAD #撤销前一次commit
+git revert HEAD^ #撤销前前一次commit
+git revert &amp;lt;id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x07-查看文件的不同&#34;&gt;0x07 查看文件的不同&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git diff filename #比较当前文件（工作区文件）和暂存区（索引区）文件的差异。
+git diff &amp;lt;id&amp;gt; &amp;lt;id&amp;gt; #比较两次提交之间的差异
+git diff &amp;lt;branch1&amp;gt;..&amp;lt;branch2&amp;gt; # 在两个分支之间比较
+git diff --staged # 比较暂存区和版本库差异
+git diff --cached # 比较暂存区和版本库差异
+git diff --stat # 仅仅比较统计信息
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x08-查看提交记录&#34;&gt;0x08 查看提交记录&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git lg
+git lg &amp;lt;file&amp;gt; # 查看该文件每次提交记录
+git lg -p &amp;lt;file&amp;gt; # 查看每次详细修改内容的diff
+git lg -p -2 # 查看最近两次详细修改内容的diff
+git lg --stat # 查看提交统计信息
+git lg --pretty=oneline --graph #精简信息显示方式
+git lg --pretty=format:&amp;quot;%h - %an, %ar : %s&amp;quot; --graph
+git lg --pretty=oneline filename
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x09-本地分支管理&#34;&gt;0x09 本地分支管理&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git branch -r
+git br -r # 查看远程分支
+git br &amp;lt;new_branch&amp;gt; # 创建新的分支
+git br -v # 查看各个分支最后提交信息
+git br --merged # 查看已经被合并到当前分支的分支
+git br --no-merged # 查看尚未被合并到当前分支的分支
+git co &amp;lt;branch&amp;gt; # 切换到某个分支
+git co -b &amp;lt;new_branch&amp;gt; # 创建新的分支，并且切换过去
+git co -b &amp;lt;new_branch&amp;gt; &amp;lt;branch&amp;gt; # 基于branch创建新的new_branch
+git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除
+git co $id -b &amp;lt;new_branch&amp;gt; # 把某次历史提交记录checkout出来，创建成一个分支
+git br -d &amp;lt;branch&amp;gt; # 删除某个分支
+git br -D &amp;lt;branch&amp;gt; # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x10-分支合并和rebase&#34;&gt;0x10 分支合并和rebase&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git merge &amp;lt;branch&amp;gt; # 将branch分支合并到当前分支
+git merge origin/master --no-ff # 不要Fast-Foward合并，这样可以生成merge提交
+git rebase master &amp;lt;branch&amp;gt; # 将master rebase到branch，相当于：
+git co &amp;lt;branch&amp;gt; &amp;amp;&amp;amp; git rebase master &amp;amp;&amp;amp; git co master &amp;amp;&amp;amp; git merge &amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x11-补丁管理&#34;&gt;0x11 补丁管理&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git diff &amp;gt; ../sync.patch # 生成补丁
+git apply ../sync.patch # 打补丁
+git apply --check ../sync.patch # 测试补丁能否成功
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x12-暂存管理&#34;&gt;0x12 暂存管理&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git stash # 暂存
+git stash list # 列所有stash
+git stash apply # 恢复暂存的内容
+git stash drop # 删除暂存区
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x13-远程分支管理&#34;&gt;0x13 远程分支管理&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git pull # 抓取远程仓库所有分支更新并合并到本地
+git pull --no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并
+git fetch origin # 抓取远程仓库更新
+git merge origin/master # 将远程主分支合并到本地当前分支
+git co --track origin/branch # 跟踪某个远程分支创建相应的本地分支
+git co -b &amp;lt;local_branch&amp;gt; origin/&amp;lt;remote_branch&amp;gt; # 基于远程分支创建本地分支，功能同上
+git push # push所有分支
+git push origin master # 将本地主分支推到远程主分支
+git push -u origin master
+# 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)
+git push origin &amp;lt;local_branch&amp;gt; # 创建远程分支， origin是远程仓库名
+git push origin &amp;lt;local_branch&amp;gt;:&amp;lt;remote_branch&amp;gt; # 创建远程分支
+git push origin :&amp;lt;remote_branch&amp;gt;
+#先删除本地分支(git br -d &amp;lt;branch&amp;gt;)，然后再push删除远程分支
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x14-远程仓库管理&#34;&gt;0x14 远程仓库管理&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git remote -v # 查看远程服务器地址和仓库名称
+git remote show origin # 查看远程服务器仓库状态
+git remote add origin git@github:robbin/robbin_site.git
+# 添加远程仓库地址
+git remote set-url origin git@github.com:robbin/robbin_site.git
+# 设置远程仓库地址(用于修改远程仓库地址)
+git remote rm &amp;lt;repository&amp;gt; # 删除远程仓库
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x15-创建远程仓库&#34;&gt;0x15 创建远程仓库&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; git clone --bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库
+scp -r my_project.git git@git.csdn.net:~ # 将纯仓库上传到服务器上
+mkdir robbin_site.git &amp;amp;&amp;amp; cd robbin_site.git &amp;amp;&amp;amp; git --bare init # 在服务器创建纯仓库
+git remote add origin git@github.com:robbin/robbin_site.git # 设置远程仓库地址
+git push -u origin master # 客户端首次提交
+git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track
+git remote set-head origin master # 设置远程仓库的HEAD指向master分支
+#也可以命令设置跟踪远程库和本地库
+git br --set-upstream master origin/master
+git br --set-upstream develop origin/develop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;0x16-update&#34;&gt;0x16 UPDATE&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Bash&#34;&gt; 2016-01-19（还有一部分设置没有更新）
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;https://mukhali.github.io/images/posts/qrcode_for_gh_151.0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description></item></channel></rss>
